@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--? METODO toString() METODO to Fixed() METODO toPrecision()--> 
+<!--? FECHAS : getHours() getMinutes() getSeconds() -->
+ <html>
+   <head>
+    <title></title>
+   </head> 
+    <body>
+        <script>
+            // Pedir un nombre al usuario
+                var nombre = prompt("Por favor, ingresa tu nombre:");
+
+            // Mostrar el nombre por consola dentro de un saludo
+                console.log("¡Hola, " + nombre + "!");
+
+            // Repetir utilizando "template literals"
+                console.log(`¡Hola, ${nombre}!`);
+
+            // Mostrar el tipo de variable que es
+                console.log(`El tipo de variable de "nombre" es: ${typeof nombre}`);
+
+            // Mostrar la longitud del nombre
+                console.log(`La longitud del nombre es: ${nombre.length}`);
+
+            // Preguntar si es alumno de nuestra clase
+                var esAlumno = confirm("¿Eres alumno de nuestra clase?");
+
+            // Contestar con una frase completa en alert
+                if (esAlumno) {
+                    alert(`Bienvenido, ${nombre}! Nos alegra que seas parte de nuestra clase.`);
+                } else {
+                    alert(`Hola, ${nombre}! Si alguna vez te interesa unirte a nuestra clase, ¡estaremos encantados de recibirte!`);
+                }
+            //Mostrar la hora actual con funcion horas minutos y segundos
+                const ahora = new Date();
+
+                const year = ahora.getFullYear();
+                const month = ahora.getMonth() + 1;  // Los meses comienzan desde 0, así que sumamos 1
+                const day = ahora.getDate();
+                const hours = ahora.getHours();
+                const minutes = ahora.getMinutes();
+                const seconds = ahora.getSeconds();
+
+                console.log(`Fecha y hora actual: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}`);
+
+            
+        </script>
+    </body>
+ </html>
