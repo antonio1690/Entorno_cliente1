@@ -1,36 +1,32 @@
 <!DOCTYPE html>
-<!--? METODO toString() METODO to Fixed() METODO toPrecision()--> 
-<!--? FECHAS : getHours() getMinutes() getSeconds() -->
  <html>
    <head>
     <title></title>
    </head> 
     <body>
         <script>
-            // Pedir un nombre al usuario
-                var nombre = prompt("Por favor, ingresa tu nombre:");
+            // Pedir un nombre
+                const nombre = prompt("Por favor, ingresa tu nombre:");
 
             // Mostrar el nombre por consola dentro de un saludo
-                console.log("¡Hola, " + nombre + "!");
-
-            // Repetir utilizando "template literals"
-                console.log(`¡Hola, ${nombre}!`);
+                console.log(`Hola, ${nombre}!`);
 
             // Mostrar el tipo de variable que es
-                console.log(`El tipo de variable de "nombre" es: ${typeof nombre}`);
+                console.log(`El tipo de variable de 'nombre' es: ${typeof nombre}`);
 
             // Mostrar la longitud del nombre
-                console.log(`La longitud del nombre es: ${nombre.length}`);
+                console.log(`La longitud de tu nombre es: ${nombre.length}`);
 
             // Preguntar si es alumno de nuestra clase
-                var esAlumno = confirm("¿Eres alumno de nuestra clase?");
+                const esAlumno = confirm("¿Eres alumno de nuestra clase?");
 
-            // Contestar con una frase completa en alert
+            // Contestar con una frase completa en un alert
                 if (esAlumno) {
-                    alert(`Bienvenido, ${nombre}! Nos alegra que seas parte de nuestra clase.`);
+                    alert(`Bienvenido, ${nombre}, eres alumno de nuestra clase.`);
                 } else {
-                    alert(`Hola, ${nombre}! Si alguna vez te interesa unirte a nuestra clase, ¡estaremos encantados de recibirte!`);
+                    alert(`Hola, ${nombre}, no eres alumno de nuestra clase.`);
                 }
+
             //Mostrar la hora actual con funcion horas minutos y segundos
                 const ahora = new Date();
 
