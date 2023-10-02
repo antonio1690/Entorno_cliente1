@@ -37,9 +37,28 @@
                 const minutes = ahora.getMinutes();
                 const seconds = ahora.getSeconds();
 
-                console.log(`Fecha y hora actual: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}`);
-
-            
+                console.log(`Fecha y hora actual: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}`);  
         </script>
+
+        <script>
+            //Ejemplo de uso de parametros por defecto
+            function tablaMultiplicar (tabla,fin=10) {
+                        for (i=0; i < fin; i++);
+                        console.log(tabla,"x","i", "=" ,tabla * i);
+                    }
+                    tablaMultiplicar(2);
+                    tablaMultiplicar(6,20);
+
+            function suma () {
+                let resultado = 0;
+                for (let i = 0; i < arguments.length; i++) {
+                    resultado += arguments[i];
+                }
+                return resultado;
+            }
+            const resultadoSuma = tablaMultiplicar;            
+            console.log(resultadoSuma);
+        </script>
+
     </body>
  </html>
