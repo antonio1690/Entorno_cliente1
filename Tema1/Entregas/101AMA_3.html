@@ -7,7 +7,7 @@
             // Define una variable local dentro de una función
             function saludar() {
             var saludo = "Hola";
-            window.alert(saludo);
+            //window.alert(saludo);
             }
 
             // Invoca la función
@@ -27,35 +27,35 @@
             // Invoca la función
             despedir();
 
-        // Muestra la variable global desde fuera de la función
-        window.alert(despedida);
+            // Muestra la variable global desde fuera de la función
+            window.alert(despedida);
 
-        // Define una variable global con el mismo nombre que una variable local dentro de una función
-        var duplicado = "Variable global";
+            // Define una variable global con el mismo nombre que una variable local dentro de una función
+            var duplicado = "Variable global";
 
-        function ambito() {
-        var duplicado = "Variable local";
-        window.alert("Variable local: " + duplicado);
-        }
+            function ambito() {
+            var duplicado = "Variable local";
+            window.alert("Variable local: " + duplicado);
+            }
 
-        // Invoca la función y muestra ambas variables
-        ambito();
-        window.alert("Variable global: " + duplicado);
+            // Invoca la función y muestra ambas variables
+            ambito();
+            window.alert("Variable global: " + duplicado);
 
-        // Declara y define una variable global
-        var miVariable = "Variable global";
+            // Declara y define una variable global
+            var miVariable = "Variable global";
 
-        // Redefine la variable dentro de una función
-        function redefinirVariable() {
-        miVariable = "Variable redefinida dentro de la función";
-        window.alert(miVariable);
-        }
+            // Redefine la variable dentro de una función
+            function redefinirVariable() {
+            miVariable = "Variable redefinida dentro de la función";
+            window.alert(miVariable);
+            }
 
-        // Invoca la función para redefinir la variable
-        redefinirVariable();
+            // Invoca la función para redefinir la variable
+            redefinirVariable();
 
-        // Muestra el valor de la variable global después de la redefinición
-    window.alert(miVariable);
+            // Muestra el valor de la variable global después de la redefinición
+            window.alert(miVariable);
 
         </script>
     </body>
