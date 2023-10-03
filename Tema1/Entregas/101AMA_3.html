@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title> Ejercicio 3 </title>
+    </head>
+    <body>
+        <script>
+            // Define una variable local dentro de una función
+            function saludar() {
+            var saludo = "Hola";
+            window.alert(saludo);
+            }
+
+            // Invoca la función
+            saludar();
+
+            // Muestra la variable desde fuera de la función mediante un window.alert
+            window.alert(saludo); // Esto mostrará un error, ya que 'saludo' es una variable local y no está definida fuera de la función.
+
+            // Define una variable global
+            var despedida = "Adiós";
+
+            // Define una función que muestra la variable global
+            function despedir() {
+            window.alert(despedida);
+            }
+
+            // Invoca la función
+            despedir();
+
+        // Muestra la variable global desde fuera de la función
+        window.alert(despedida);
+
+        // Define una variable global con el mismo nombre que una variable local dentro de una función
+        var duplicado = "Variable global";
+
+        function ambito() {
+        var duplicado = "Variable local";
+        window.alert("Variable local: " + duplicado);
+        }
+
+        // Invoca la función y muestra ambas variables
+        ambito();
+        window.alert("Variable global: " + duplicado);
+
+        // Declara y define una variable global
+        var miVariable = "Variable global";
+
+        // Redefine la variable dentro de una función
+        function redefinirVariable() {
+        miVariable = "Variable redefinida dentro de la función";
+        window.alert(miVariable);
+        }
+
+        // Invoca la función para redefinir la variable
+        redefinirVariable();
+
+        // Muestra el valor de la variable global después de la redefinición
+    window.alert(miVariable);
+
+        </script>
+    </body>
+</html>
