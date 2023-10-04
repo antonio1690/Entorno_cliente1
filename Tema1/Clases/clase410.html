@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title> Ejercicios Cine </title>
+    </head>
+    <body>
+        <script>
+                // Ejercicio 1
+                var nombrecliente = prompt ("Dame el nombre del cliente")
+                    while (!isNaN(nombrecliente) || nombrecliente == null) {
+                        alert ("Por favor introduzca un nombre valido");
+                        nombrecliente = prompt ("Introduzca su nombre");
+                    }
+                    console.log ("Nombre:" + nombrecliente);
+                
+                // Ejercicio 2
+                var edadcliente = parseInt(prompt ("Dame la edad del cliente"))
+                    while (isNaN(edadcliente) || edadcliente == null) {
+                        alert ("Por favor introduzca una edad valida");
+                        edadcliente = parseInt(prompt ("Introduzca su edad"));
+                    }
+                console.log ("Edad:" + edadcliente);
+
+                //Ejercicio 3
+                let cartelera = [
+                    "Spider Man","Superman","Dragon Ball Super","La era del hielo","18 Videos"
+                ];
+                let pelicula = prompt ("Dame el nombre de la pelicula");
+                    while(cartelera.indexOf(pelicula) || pelicula == null) {
+                        alert ("Por favor introduzca el nombre de una pelicula que este dentro de la cartelera");
+                        peliculas = prompt ("Introduzca el nombre de una pelicula");
+                    }
+                console.log ("Pelicula" + pelicula);
+
+                // Ejercicio 4
+                while (edadcliente <= 17 && pelicula == '18 Videos') {
+                    alert ("No tienes permiso para poder ver esta pelicula, escoja otra")
+                }
+
+                // Ejercicio 5
+                
+                
+
+
+
+
+        </script>
+    </body>
+</html>
