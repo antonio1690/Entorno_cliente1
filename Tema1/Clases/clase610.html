@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title> Clase del 6/10 </title>
+    </head>
+    <body>
+        <!--? BUCLES FOR -->
+        <!--? BUCLES FOR IN -->
+        <!--? BUCLES IF -->
+        <!--? BUCLES WHILE -->
+        <!--? ARRAYS -->
+
+ 
+            <script>
+                <!--? Adivinar un numero -->
+                let numAdivinar = Math.ceil (Math.random() *100 );
+                let intentos = 1;
+                let numeroPropio = parseInt (prompt ("Dame un numero"));
+                
+
+                while (numeroPropio !== numAdivinar) {
+                   if (numeroPropio > numAdivinar) {
+                       numeroPropio = parseInt (prompt("El numero correcto es menor"));
+                   }
+                   else {
+                       numeroPropio = parseInt (prompt("El numero correcto es mayor"));
+                       intentos++;
+                   }
+                }
+                console.log ("El numero de intentos que has hecho es de: " + intentos );
+                console.log ("El numero correcto es: " + numAdivinar);
+           </script>
+         
+
+        
+            <script>
+                let a = ['lunes', 'martes',2,4,6]
+                let cadena = a.join (':');
+                console.log (cadena);
+                let notas = "5-7.5-6-5";
+                let arrayNotas = notas.split ("");
+                console.log (arrayNotas);  
+            </script>
+
+
+
+
+
+    </body>
+</html>
