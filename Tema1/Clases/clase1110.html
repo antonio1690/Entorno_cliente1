@@ -60,11 +60,26 @@
             [b,a] = [a,b];
         </script>
 
-        <!-- Explicacion de variables Spread y Rest -->
+        <!-- Explicacion de variable Spread  -->
         <script>
             const debug = (param) => console.log (...param);
             const matriz2 = [1,2,3,4,5];
             debug (matriz2);
         </script>
+        <!-- Explicacion de variable Rest  -->
+        <script>
+            const elements = [5,4,3,2];
+            const [first1, ...rest] = elements;
+            // First = 5, rest = [4,3,2]
+        </script>
+
+        <!-- Array de 2 elementos [3,4] y crear un nuevo array [1 al 5] usando desestructuracion -->
+        <script>
+            const pareja = [3,4];
+            const array = [1,2, ...pareja,5];
+            console.log (array);
+        </script>
+
+
     </body>
 </html>
