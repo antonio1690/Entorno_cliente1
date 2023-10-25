@@ -28,7 +28,7 @@
         console.log("------- | ------");
         console.log("2000   | " + esBisiesto(2000));
         console.log("2400   | " + esBisiesto(2400));
-        console.log("2100   | " + esBisiesto(2100));
+        console.log("100   | " + esBisiesto(100));
         console.log("2200   | " + esBisiesto(2200));
         console.log("2300   | " + esBisiesto(2300));
    
@@ -54,11 +54,14 @@
 
         // Función para ordenar los productos alfabéticamente por nombre
         function prodOrdenPorNombre(arrayProductos) {
+            // Usamos slice() para crear una copia del array original y evitar modificaciones
+            // Devolvemos el array copiado, ordenado alfabéticamente por el nombre
             return arrayProductos.slice().sort((a, b) => a.nombre.localeCompare(b.nombre));
         }
 
         // Función para ordenar los productos por precio
         function prodOrdenPorPrecio(arrayProductos) {
+            // Creamos una copia del array original y lo ordenamos por precio de menor a mayor
             return arrayProductos.slice().sort((a, b) => a.precio - b.precio);
         }
 
@@ -69,12 +72,14 @@
         // Mostramos los productos ordenados por nombre
         console.log("Productos ordenados por nombre:");
         productosOrdenadosPorNombre.forEach((producto) => {
+            // Imprimimos nombre, precio y unidades de cada producto
             console.log(`Nombre: ${producto.nombre}, Precio: ${producto.precio}, Unidades: ${producto.unidades}`);
         });
 
         // Mostramos los productos ordenados por precio
         console.log("\nProductos ordenados por precio:");
         productosOrdenadosPorPrecio.forEach((producto) => {
+            // Imprimimos nombre, precio y unidades de cada producto
             console.log(`Nombre: ${producto.nombre}, Precio: ${producto.precio}, Unidades: ${producto.unidades}`);
         });
 
