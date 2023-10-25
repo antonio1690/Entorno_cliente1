@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Información de Contactos</title>
+</head>
+<body>
+    <h1>Información de Contactos</h1>
+
+    <script>
+        // Declaración e inicialización de un array para almacenar información de contactos
+        var contactos = [
+            {
+                nombre: "Juan Pérez",
+                telefono: "555-123-4567",
+                correo: "juan@example.com"
+            },
+            {
+                nombre: "María García",
+                telefono: "555-987-6543",
+                correo: "maria@example.com"
+            },
+            {
+                nombre: "Carlos Rodríguez",
+                telefono: "555-789-1234",
+                correo: "carlos@example.com"
+            }
+        ]
+
+        // Función para mostrar el primer contacto
+        function mostrarPrimerContacto() {
+            console.log("Primer contacto:");
+            console.log(contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
+        }
+
+        // Función para mostrar el último contacto
+        function mostrarUltimoContacto() {
+            var ultimoIndex = contactos.length - 1;
+            console.log("Último contacto:");
+            console.log(contactos[ultimoIndex].nombre + " / " + contactos[ultimoIndex].telefono + " / " + contactos[ultimoIndex].correo);
+        }
+
+        // Función para mostrar todos los contactos
+        function mostrarTodosLosContactos() {
+            console.log("Lista de contactos:");
+            for (var i = 0; i < contactos.length; i++) {
+                console.log(contactos[i].nombre + " / " + contactos[i].telefono + " / " + contactos[i].correo);
+            }
+        }
+
+        // Función para agregar un nuevo contacto
+        function agregarNuevoContacto() {
+            var nuevoNombre = prompt("Introduce el nombre del nuevo contacto:");
+            var nuevoTelefono = prompt("Introduce el número de teléfono del nuevo contacto:");
+            var nuevoCorreo = prompt("Introduce el correo electrónico del nuevo contacto:");
+
+            // Verificar si se han ingresado todos los datos necesarios
+            if (nuevoNombre && nuevoTelefono && nuevoCorreo) {
+                var nuevoContacto = {
+                    nombre: nuevoNombre,
+                    telefono: nuevoTelefono,
+                    correo: nuevoCorreo
+                };
+                contactos.push(nuevoContacto);
+                console.log("Nuevo contacto agregado con éxito.");
+            } else {
+                console.log("Faltan datos. El contacto no se ha agregado.");
+            }
+        }
+
+        while (true) {
+            // Pedir al usuario que elija una opción
+            var opcion = prompt("Elige una opción: \n- Mostrar el primer contacto (primero) \n- Mostrar el último contacto (último) \n- Mostrar todos los contactos (todos) \n- Agregar un nuevo contacto (nuevo) \n- Salir del programa (salir)").toLowerCase();
+
+            // Realizar la acción seleccionada por el usuario
+            if (opcion === "primero") {
+                mostrarPrimerContacto();
+            } else if (opcion === "último") {
+                mostrarUltimoContacto();
+            } else if (opcion === "todos") {
+                mostrarTodosLosContactos();
+            } else if (opcion === "nuevo") {
+                agregarNuevoContacto();
+            } else if (opcion === "salir") {
+                break;  // Salir del bucle si el usuario elige "salir"
+            } else {
+                console.log("Opción no válida.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -26,12 +26,19 @@
             }
         ];
 
-        // Agregar un nuevo contacto al array usando el método push()
+        // Pedir al usuario que introduzca un nuevo contacto
+        var nuevoNombre = prompt("Introduce el nombre del nuevo contacto:");
+        var nuevoTelefono = prompt("Introduce el número de teléfono del nuevo contacto:");
+        var nuevoCorreo = prompt("Introduce el correo electrónico del nuevo contacto:");
+
+        // Crear un objeto para el nuevo contacto
         var nuevoContacto = {
-            nombre: "Maisie Haley",
-            telefono: "0913 531 3030",
-            correo: "risus.Quisque@urna.ca"
+            nombre: nuevoNombre,
+            telefono: nuevoTelefono,
+            correo: nuevoCorreo
         };
+
+        // Agregar el nuevo contacto al array
         contactos.push(nuevoContacto);
 
         // Mostrar el primer y último contacto en el formato: nombre / teléfono / correo electrónico

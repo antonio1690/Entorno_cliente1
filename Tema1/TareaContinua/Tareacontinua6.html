@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Información de Contactos</title>
+</head>
+<body>
+    <h1>Información de Contactos</h1>
+
+    <script>
+        // Declaración e inicialización de un array para almacenar información de contactos
+        var contactos = [
+            {
+                nombre: "Juan Pérez",
+                telefono: "555-123-4567",
+                correo: "juan@example.com"
+            },
+            {
+                nombre: "María García",
+                telefono: "555-987-6543",
+                correo: "maria@example.com"
+            },
+            {
+                nombre: "Carlos Rodríguez",
+                telefono: "555-789-1234",
+                correo: "carlos@example.com"
+            }
+        ];
+
+        // Función para mostrar un contacto en un índice específico
+        function showContact(contactList, index) {
+            if (contactList instanceof Array && index >= 0 && index < contactList.length) {
+                var contacto = contactList[index];
+                console.log(contacto.nombre + " / " + contacto.telefono + " / " + contacto.correo);
+            } else {
+                console.log("Contacto no encontrado o índice no válido.");
+            }
+        }
+
+        // Función para mostrar todos los contactos
+        function showAllContacts(contactList) {
+            if (contactList instanceof Array) {
+                console.log("Lista de contactos:");
+                for (var i = 0; i < contactList.length; i++) {
+                    var contacto = contactList[i];
+                    console.log(contacto.nombre + " / " + contacto.telefono + " / " + contacto.correo);
+                }
+            } else {
+                console.log("La lista de contactos no es válida.");
+            }
+        }
+
+        // Función para agregar un nuevo contacto
+        function addNewContact(contactList, nuevoNombre, nuevoTelefono, nuevoCorreo) {
+            if (contactList instanceof Array && nuevoNombre && nuevoTelefono && nuevoCorreo) {
+                var nuevoContacto = {
+                    nombre: nuevoNombre,
+                    telefono: nuevoTelefono,
+                    correo: nuevoCorreo
+                };
+                contactList.push(nuevoContacto);
+                console.log("Nuevo contacto agregado con éxito.");
+            } else {
+                console.log("Faltan datos o la lista de contactos no es válida. El contacto no se ha agregado.");
+            }
+        }
+
+        while (true) {
+            var opcion = prompt("Elige una opción: \n- Mostrar el primer contacto (primero) \n- Mostrar el último contacto (último) \n- Mostrar todos los contactos (todos) \n- Agregar un nuevo contacto (nuevo) \n- Salir del programa (salir)").toLowerCase();
+
+            if (opcion === "primero") {
+                showContact(contactos, 0);
+            } else if (opcion === "último") {
+                showContact(contactos, contactos.length - 1);
+            } else if (opcion === "todos") {
+                showAllContacts(contactos);
+            } else if (opcion === "nuevo") {
+                var nuevoNombre = prompt("Introduce el nombre del nuevo contacto:");
+                var nuevoTelefono = prompt("Introduce el número de teléfono del nuevo contacto:");
+                var nuevoCorreo = prompt("Introduce el correo electrónico del nuevo contacto:");
+                addNewContact(contactos, nuevoNombre, nuevoTelefono, nuevoCorreo);
+            } else if (opcion === "salir") {
+                break;
+            } else {
+                console.log("Opción no válida.");
+            }
+        }
+    </script>
+</body>
+</html>
