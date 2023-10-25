@@ -1,23 +1,36 @@
 <html>
     <body>
         <script>
-            function esBisiesto(anyo) {
-                if ((anyo % 4 === 0 && anyo % 100 !== 0) || anyo % 400 === 0) {
-                    return 1;
-                } else {
-                    return 0;
-            }
-        }
+function esBisiesto(anyo) {
+  // Esta es la declaración de la función llamada esBisiesto que toma un argumento llamado anyo (el año que queremos verificar).
+  
+  if ((anyo % 4 === 0 && anyo % 100 !== 0) || anyo % 400 === 0) {
+    // Aquí comienza una declaración condicional if. La condición se verifica en dos partes separadas por el operador lógico "||" (o).
+    
+    // La primera parte de la condición verifica si el año es divisible por 4 y no es divisible por 100 (esto cumple el primer criterio de ser bisiesto).
+    // El operador "%" calcula el resto de la división, por lo que "anyo % 4 === 0" verifica si el año es divisible por 4 sin dejar un resto, y "anyo % 100 !== 0" verifica si no es divisible por 100.
+    
+    // La segunda parte de la condición verifica si el año es divisible por 400 (esto cumple el segundo criterio de ser bisiesto).
 
-        // Ejemplos de uso:
-        console.log("Entrada | Salida");
-        console.log("------- | ------");
-        console.log("2000   | " + esBisiesto(2000));
-        console.log("2400   | " + esBisiesto(2400));
-        console.log("2100   | " + esBisiesto(2100));
-        console.log("2200   | " + esBisiesto(2200));
-        console.log("2300   | " + esBisiesto(2300));
-            
+    /*if ( condición ) {*/
+      // Si ambas partes de la condición son verdaderas, el año es bisiesto, y la función devuelve 1.
+      return 1;
+    } else {
+      // Si alguna de las dos partes de la condición es falsa, el año no es bisiesto, y la función devuelve 0.
+      return 0;
+    }
+  }
+
+
+// Ejemplos de uso:
+console.log("Entrada | Salida");
+console.log("------- | ------");
+console.log("2000   | " + esBisiesto(2000));
+console.log("2400   | " + esBisiesto(2400));
+console.log("2100   | " + esBisiesto(2100));
+console.log("2200   | " + esBisiesto(2200));
+console.log("2300   | " + esBisiesto(2300));
+   
         </script>
 
         <script>
@@ -27,6 +40,43 @@
             //. Devuelve un array con los productos ordenados alfabeticamente
             //prodOrdenPorPrecio()
             //. Devuelve un array con los productos ordenados por importe
+
+
+            // Definimos un array con 5 productos
+            const productos = [
+            { nombre: "Producto C", precio: 30, unidades: 5 },
+            { nombre: "Producto A", precio: 50, unidades: 3 },
+            { nombre: "Producto E", precio: 20, unidades: 2 },
+            { nombre: "Producto B", precio: 40, unidades: 4 },
+            { nombre: "Producto D", precio: 10, unidades: 1 },
+        ];
+
+        // Función para ordenar los productos alfabéticamente por nombre
+        function prodOrdenPorNombre(arrayProductos) {
+            return arrayProductos.slice().sort((a, b) => a.nombre.localeCompare(b.nombre));
+        }
+
+        // Función para ordenar los productos por precio
+        function prodOrdenPorPrecio(arrayProductos) {
+            return arrayProductos.slice().sort((a, b) => a.precio - b.precio);
+        }
+
+        // Llamamos a las funciones y guardamos los resultados en variables
+        const productosOrdenadosPorNombre = prodOrdenPorNombre(productos);
+        const productosOrdenadosPorPrecio = prodOrdenPorPrecio(productos);
+
+        // Mostramos los productos ordenados por nombre
+        console.log("Productos ordenados por nombre:");
+        productosOrdenadosPorNombre.forEach((producto) => {
+            console.log(`Nombre: ${producto.nombre}, Precio: ${producto.precio}, Unidades: ${producto.unidades}`);
+        });
+
+        // Mostramos los productos ordenados por precio
+        console.log("\nProductos ordenados por precio:");
+        productosOrdenadosPorPrecio.forEach((producto) => {
+            console.log(`Nombre: ${producto.nombre}, Precio: ${producto.precio}, Unidades: ${producto.unidades}`);
+        });
+
         </script>
     </body>
 </html>
