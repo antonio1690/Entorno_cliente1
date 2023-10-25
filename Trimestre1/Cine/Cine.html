@@ -1,48 +1,92 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title> Ejercicios Cine </title>
-    </head>
-    <body>
-        <script>
-                // Ejercicio 1
-                var nombrecliente = prompt ("Dame el nombre del cliente")
-                    while (!isNaN(nombrecliente) || nombrecliente == null) {
-                        alert ("Por favor introduzca un nombre valido");
-                        nombrecliente = prompt ("Introduzca su nombre");
-                    }
-                    console.log ("Nombre:" + nombrecliente);
-                
-                // Ejercicio 2
-                var edadcliente = parseInt(prompt ("Dame la edad del cliente"))
-                    while (isNaN(edadcliente) || edadcliente == null) {
-                        alert ("Por favor introduzca una edad valida");
-                        edadcliente = parseInt(prompt ("Introduzca su edad"));
-                    }
-                console.log ("Edad:" + edadcliente);
+<head>
+    <title>Compra de entradas de cine</title>
+</head>
+<body>
+    <h1>Compra de entradas de cine</h1>
 
-                //Ejercicio 3
-                let cartelera = [
-                    "Spider Man","Superman","Dragon Ball Super","La era del hielo","18 Videos"
-                ];
-                let pelicula = prompt ("Dame el nombre de la pelicula");
-                    while(cartelera.indexOf(pelicula) || pelicula == null) {
-                        alert ("Por favor introduzca el nombre de una pelicula que este dentro de la cartelera");
-                        peliculas = prompt ("Introduzca el nombre de una pelicula");
-                    }
-                console.log ("Pelicula" + pelicula);
+    <script>
+        var nombreCliente;
+        var edadCliente;
+        var peliculaSeleccionada;
+        var precioEntrada = 8.5; // Precio base de la entrada
+        var listaPeliculas = ['Spider Man', 'Superman', 'Dragon Ball Super', 'La era del hielo', '18videos'];
+        var listaComidas = ['Caramelos', 'Palomitas', 'Perrito', 'Agua'];
+        var listaBebidas = ['Refresco'];
 
-                // Ejercicio 4
-                while (edadcliente <= 17 && pelicula == '18 Videos') {
-                    alert ("No tienes permiso para poder ver esta pelicula, escoja otra")
-                }
+        // Pide el nombre del cliente y verifica que sea un string válido
+        while (true) {
+            nombreCliente = prompt("Por favor, ingrese su nombre:");
+            if (nombreCliente !== null && typeof nombreCliente === "string") {
+                break;
+            } else {
+                alert("Nombre inválido. Intente nuevamente.");
+            }
+        }
 
-                // Ejercicio 5
-                
-                
+        // Pide la edad del cliente y verifica que sea un número válido
+        while (true) {
+            var edad = prompt("Por favor, ingrese su edad:");
+            edadCliente = parseInt(edad);
+            if (!isNaN(edadCliente) && edadCliente > 0) {
+                break;
+            } else {
+                alert("Edad inválida. Intente nuevamente.");
+            }
+        }
 
+        // Pide al cliente que elija una película de la cartelera
+        while (true) {
+            var listaPeliculasTexto = "Peliculas en cartelera:\n";
+            for (var i = 0; i < listaPeliculas.length; i++) {
+                listaPeliculasTexto += i + 1 + ". " + listaPeliculas[i] + "\n";
+            }
 
+            var seleccion = prompt(listaPeliculasTexto + "Por favor, elija una película por su número:");
+            var seleccionNumero = parseInt(seleccion);
+            if (!isNaN(seleccionNumero) && seleccionNumero > 0 && seleccionNumero <= listaPeliculas.length) {
+                peliculaSeleccionada = listaPeliculas[seleccionNumero - 1];
+                break;
+            } else {
+                alert("Selección de película inválida. Intente nuevamente.");
+            }
+        }
 
+        // Verifica si el cliente puede ver "18videos"
+        if (edadCliente <= 17 && peliculaSeleccionada === "18videos") {
+            alert("Lo siento, no tiene permiso para ver '18videos'.");
+        } else {
+            var descuento = 0;
+            var regalos = [];
 
-        </script>
-    </body>
+            if (edadCliente <= 17) {
+                descuento = 0.5; // Descuento del 50%
+                regalos.push("Caramelos", "Refresco");
+            } else if (edadCliente >= 18 && edadCliente <= 25) {
+                regalos.push("Palomitas", "Perrito", "Refresco");
+            } else if (edadCliente >= 26 && edadCliente <= 35) {
+                descuento = 0.1; // Descuento del 10%
+                regalos.push("Perrito", "Refresco");
+            } else {
+                descuento = 0.2; // Descuento del 20%
+                regalos.push("Agua");
+            }
+
+            var totalAPagar = precioEntrada * (1 - descuento);
+            alert("Nombre del cliente: " + nombreCliente);
+            alert("Nombre de la película: " + peliculaSeleccionada);
+            alert("Lista de comidas y bebidas incluidas: " + regalos.join(', '));
+            alert("Total a pagar: " + totalAPagar + " euros");
+            
+            // Mostrar la información también en el HTML
+            var resultadoHTML = document.createElement('div');
+            resultadoHTML.innerHTML = "<p>Nombre del cliente: " + nombreCliente + "</p>" +
+                "<p>Nombre de la película: " + peliculaSeleccionada + "</p>" +
+                "<p>Lista de comidas y bebidas incluidas: " + regalos.join(', ') + "</p>" +
+                "<p>Total a pagar: " + totalAPagar + " euros</p>";
+            document.body.appendChild(resultadoHTML);
+        }
+    </script>
+</body>
 </html>
