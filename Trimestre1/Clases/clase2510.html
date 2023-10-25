@@ -1,7 +1,15 @@
 <html>
     <body>
         <script>
-            
+            var num = 123;
+            var num2 = new Number(123);
+            var num3 = new Number(123);
+            alert ("num es un " + typeof(num));
+            alert ("num es un " + typeof(num2));
+
+            //No utilizar objeto. Es lento en la ejecucion y el New puede dar errores.
+            alert("num == num2:" +  (num=num2));
+            alert("num === num2:" +  (num=num2));
 
 
 
