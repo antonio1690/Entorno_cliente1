@@ -1,18 +1,22 @@
 <html>
     <body>
         <script>
-            var num = 123;
-            var num2 = new Number(123);
-            var num3 = new Number(123);
-            alert ("num es un " + typeof(num));
-            alert ("num es un " + typeof(num2));
+            function esBisiesto(anyo) {
+                if ((anyo % 4 === 0 && anyo % 100 !== 0) || anyo % 400 === 0) {
+                    return 1;
+                } else {
+                    return 0;
+            }
+        }
 
-            //No utilizar objeto. Es lento en la ejecucion y el New puede dar errores.
-            alert("num == num2:" +  (num=num2));
-            alert("num === num2:" +  (num=num2));
-        </script>
-
-        <script>
+        // Ejemplos de uso:
+        console.log("Entrada | Salida");
+        console.log("------- | ------");
+        console.log("2000   | " + esBisiesto(2000));
+        console.log("2400   | " + esBisiesto(2400));
+        console.log("2100   | " + esBisiesto(2100));
+        console.log("2200   | " + esBisiesto(2200));
+        console.log("2300   | " + esBisiesto(2300));
             
         </script>
     </body>
