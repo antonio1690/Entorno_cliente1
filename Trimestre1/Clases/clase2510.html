@@ -1,35 +1,36 @@
 <html>
     <body>
         <script>
-function esBisiesto(anyo) {
-  // Esta es la declaración de la función llamada esBisiesto que toma un argumento llamado anyo (el año que queremos verificar).
+
+        function esBisiesto(anyo) {
+        // Esta es la declaración de la función llamada esBisiesto que toma un argumento llamado anyo (el año que queremos verificar).
   
-  if ((anyo % 4 === 0 && anyo % 100 !== 0) || anyo % 400 === 0) {
-    // Aquí comienza una declaración condicional if. La condición se verifica en dos partes separadas por el operador lógico "||" (o).
-    
-    // La primera parte de la condición verifica si el año es divisible por 4 y no es divisible por 100 (esto cumple el primer criterio de ser bisiesto).
-    // El operador "%" calcula el resto de la división, por lo que "anyo % 4 === 0" verifica si el año es divisible por 4 sin dejar un resto, y "anyo % 100 !== 0" verifica si no es divisible por 100.
-    
-    // La segunda parte de la condición verifica si el año es divisible por 400 (esto cumple el segundo criterio de ser bisiesto).
+            if ((anyo % 4 === 0 && anyo % 100 !== 0) || anyo % 400 === 0) {
+            // Aquí comienza una declaración condicional if. La condición se verifica en dos partes separadas por el operador lógico "||" (o).
+                
+            // La primera parte de la condición verifica si el año es divisible por 4 y no es divisible por 100 (esto cumple el primer criterio de ser bisiesto).
+            // El operador "%" calcula el resto de la división, por lo que "anyo % 4 === 0" verifica si el año es divisible por 4 sin dejar un resto, y "anyo % 100 !== 0" verifica si no es divisible por 100.
+                
+            // La segunda parte de la condición verifica si el año es divisible por 400 (esto cumple el segundo criterio de ser bisiesto).
 
-    /*if ( condición ) {*/
-      // Si ambas partes de la condición son verdaderas, el año es bisiesto, y la función devuelve 1.
-      return 1;
-    } else {
-      // Si alguna de las dos partes de la condición es falsa, el año no es bisiesto, y la función devuelve 0.
-      return 0;
+            /*if ( condición ) {*/
+            // Si ambas partes de la condición son verdaderas, el año es bisiesto, y la función devuelve 1.
+                return 1;
+            } else {
+            // Si alguna de las dos partes de la condición es falsa, el año no es bisiesto, y la función devuelve 0.
+                return 0;
+            }
     }
-  }
 
 
-// Ejemplos de uso:
-console.log("Entrada | Salida");
-console.log("------- | ------");
-console.log("2000   | " + esBisiesto(2000));
-console.log("2400   | " + esBisiesto(2400));
-console.log("2100   | " + esBisiesto(2100));
-console.log("2200   | " + esBisiesto(2200));
-console.log("2300   | " + esBisiesto(2300));
+        // Ejemplos de uso:
+        console.log("Entrada | Salida");
+        console.log("------- | ------");
+        console.log("2000   | " + esBisiesto(2000));
+        console.log("2400   | " + esBisiesto(2400));
+        console.log("2100   | " + esBisiesto(2100));
+        console.log("2200   | " + esBisiesto(2200));
+        console.log("2300   | " + esBisiesto(2300));
    
         </script>
 
