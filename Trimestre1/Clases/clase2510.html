@@ -86,20 +86,38 @@
         </script>
 
         <script>
-            function calcularPerimetroRectangulo(base, altura) {
-            // Calculamos el perímetro del rectángulo utilizando la fórmula P = 2 * (base + altura).
-                const perimetro = 2 * (base + altura);
-                return perimetro;
+        function calcularPerimetroRectangulo(base, altura) {
+        // Convierte los argumentos en números decimales si es necesario
+            const baseDecimal = parseFloat(base);
+            const alturaDecimal = parseFloat(altura);
+
+            // Verifica si la conversión fue exitosa
+            if (isNaN(baseDecimal) || isNaN(alturaDecimal)) {
+                // En caso de que la conversión falle, retorna un mensaje de error
+                return "Error: Debe proporcionar números válidos.";
             }
 
-            // Ejemplo de uso:
-            const baseRectangulo = 5.5;
-            const alturaRectangulo = 3.2;
-            const perimetroRectangulo = calcularPerimetroRectangulo(baseRectangulo, alturaRectangulo);
+            // Calculamos el perímetro del rectángulo utilizando la fórmula P = 2 * (base + altura).
+            const perimetro = 2 * (baseDecimal + alturaDecimal);
+            return perimetro;
+            }
+                        // Ejemplos de uso:
 
-            // La variable 'perimetroRectangulo' contiene el resultado.
-            console.log(perimetroRectangulo); // Puedes usar console.log para verificar el resultado si es necesario.
+            // Caso con números enteros
+            const baseRectanguloEntero = "4"; // Puedes proporcionar un número como cadena
+            const alturaRectanguloEntero = 6; // O como valor numérico
+            const perimetroRectanguloEntero = calcularPerimetroRectangulo(baseRectanguloEntero, alturaRectanguloEntero);
+            console.log(perimetroRectanguloEntero); // Debería mostrar 20
 
+            // Caso con números decimales
+            const baseRectanguloDecimal = "3.5"; // Puedes proporcionar un número decimal como cadena
+            const alturaRectanguloDecimal = 2.25; // O como valor numérico
+            const perimetroRectanguloDecimal = calcularPerimetroRectangulo(baseRectanguloDecimal, alturaRectanguloDecimal);
+            console.log(perimetroRectanguloDecimal); // Debería mostrar 11.5
+
+            // Caso con valores no numéricos
+            const perimetroRectanguloInvalido = calcularPerimetroRectangulo("texto", "otroTexto");
+            console.log(perimetroRectanguloInvalido); // Debería mostrar "Error: Debe proporcionar números válidos."
         </script>
     </body>
 </html>
