@@ -1,0 +1,43 @@
+<html>
+    <body>
+        <script>
+function calcularDiferenciaFechas() {
+  // Fecha de referencia: 1990-05-07
+  const fechaReferencia = new Date('1990-05-07');
+
+  // Fecha actual
+  const fechaActual = new Date();
+
+  // Calcula la diferencia en milisegundos
+  const diferencia = fechaActual - fechaReferencia;
+
+  // Calcula los milisegundos en un año promedio (365.25 días)
+  const milisegundosEnUnAño = 365.25 * 24 * 60 * 60 * 1000;
+
+  // Calcula los años transcurridos
+  const añosTranscurridos = Math.floor(diferencia / milisegundosEnUnAño);
+
+  // Calcula los meses restantes
+  const milisegundosRestantes = diferencia % milisegundosEnUnAño;
+  const mesesTranscurridos = Math.floor(milisegundosRestantes / (30.44 * 24 * 60 * 60 * 1000));
+
+  // Calcula los días restantes
+  const díasTranscurridos = Math.floor((milisegundosRestantes % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000));
+
+  // Crea un array con los resultados
+  const resultado = {
+    años: añosTranscurridos,
+    meses: mesesTranscurridos,
+    días: díasTranscurridos
+  };
+
+  return resultado;
+}
+
+const diferenciaFechas = calcularDiferenciaFechas();
+
+console.log(diferenciaFechas);
+
+        </script>
+    </body>
+</html>

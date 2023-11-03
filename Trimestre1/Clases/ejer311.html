@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title> DEFINICION DE OBJETOS </title>
+        <body>
+            <script>
+                // 1. OBJETO SIMPLE UTILIZANDO UN LITERAL
+                    let personal = {
+                        nombre: 'Juan',
+                        apellido: 'Pérez',
+                        ano: 1815
+                    };
+
+                // Imprimir el objeto personal en la consola
+                console.log("Objeto personal:");
+                console.log(personal);
+
+                // 2. OBJETO SIMPLE UTILIZANDO LA PALABRA NEW
+                    let personal2 = new Object();
+                        personal2.nombre = 'Juan';
+                        personal2.apellido = 'Pérez';
+                        personal2.ano = 1891;
+
+                // Imprimir el objeto personal2 en la consola
+                console.log("Objeto personal2:");
+                console.log(personal2);
+
+                // 3. CONSTRUCTOR DE UN OBJETO Y CREAR OBJETOS DEL TIPO CONSTRUIDO
+                    function Persona(nombre, apellido, ano) {
+                        this.nombre = nombre;
+                        this.apellido = apellido;
+                        this.ano = ano;
+                    }
+
+                // Crear un objeto utilizando el constructor
+                let persona1 = new Persona('Juan', 'Pérez', 1815);
+
+                // Imprimir el objeto persona1 en la consola
+                console.log("Objeto persona1:");
+                console.log(persona1);
+
+
+
+
+
+
+
+            </script>
+        </body>
+    </head>
+</html>

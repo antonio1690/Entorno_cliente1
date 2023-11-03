@@ -1,0 +1,45 @@
+<html>
+    <body>
+        <script>
+            // Función para procesar el número de viajeros en cada estación
+            function procesarNumeroDeViajeros(numero) {
+                // Verificar si el valor ingresado es un número válido
+                if (isNaN(numero)) {
+                return "Número incorrecto. Por favor, ingrese un número válido.";
+            }
+
+            // Convertir el número a una cadena para facilitar la manipulación de dígitos
+            const numeroComoCadena = numero.toString();
+
+            // Inicializar el contador de viajeros al final del trayecto
+            let viajerosAlFinal = 0;
+
+            // Iterar a través de los dígitos de derecha a izquierda
+            for (let i = numeroComoCadena.length - 1; i >= 0; i--) {
+                const digito = parseInt(numeroComoCadena[i]);
+                // Verificar si el índice actual es par o impar para subida o bajada
+                if (i % 2 === 0) {
+                    // Sumar al contador de viajeros al final del trayecto en caso de subida
+                    viajerosAlFinal += digito;
+            } else {
+                // Restar al contador de viajeros al final del trayecto en caso de bajada
+                viajerosAlFinal -= digito;
+            }
+        }
+
+        return viajerosAlFinal;
+    }
+
+            // Obtener un número del usuario
+            const numero = parseInt(prompt("Ingrese el número de viajeros en cada estación:"));
+
+            // Llamar a la función y mostrar el resultado
+            const resultado = procesarNumeroDeViajeros(numero);
+            if (typeof resultado === 'number') {
+                console.log(`Llegaron ${resultado} al final del trayecto.`);
+            } else {
+                console.log(resultado);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fecha1 = new Date ("Wed Mar 25 2015 09 15 GMT + 0100");
+        let fecha2 = new Date ("October 12  2023");
+        let fecha3 = new Date ("2023-05-27");
+        alert (fecha1);
+        alert (fecha2);
+        alert (fecha3);
+    </script>
+    <script>
+        var fecha = new Date ();
+        alert ("fecha" + fecha);
+        alert ("ToString" + fecha.toString ());
+        alert ("toUTCString" + fecha.toUTCString ());
+        alert ("toDateSting:" + fecha.toDateString);
+    </script>
+    <script>
+        // Crear un objeto Date para la fecha actual
+        const fechaActual = new Date();
+
+        // Crear un objeto Date para el 7 de mayo de 1950
+        const fechaPasada = new Date('1990-04-07');
+
+        // Calcular la diferencia en milisegundos entre las dos fechas
+        const diferenciaEnMilisegundos = fechaActual - fechaPasada;
+
+        // Convertir la diferencia de milisegundos a días
+        const milisegundosEnUnDia = 24 * 60 * 60 * 1000; // 24 horas * 60 minutos * 60 segundos * 1000 milisegundos
+        const diferenciaEnDias = Math.floor(diferenciaEnMilisegundos / milisegundosEnUnDia);
+        console.log(`Han pasado ${diferenciaEnDias} días, desde el 7 de mayo de 1950 hasta hoy.`);
+
+    </script>
+</body>
+</html>
