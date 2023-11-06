@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <script>
+            // Crear un array para almacenar los nombres de los socios
+            var socios = [];
+
+            // Utilizar un bucle para solicitar los nombres de los socios
+            for (var i = 0; i < 10; i++) {
+                var nombre = prompt("Introduce el nombre del socio " + (i + 1) + ":");
+                socios.push(nombre);
+            }
+
+            // Mostrar los nombres de los socios tal como se introdujeron
+            console.log("Nombres de los socios:");
+            for (var i = 0; i < socios.length; i++) {
+                console.log(socios[i]);
+            }
+
+            // Indicar el número de socios que hay
+            console.log("Número de socios: " + socios.length);
+
+            // Mostrar los nombres de los socios ordenados alfabéticamente
+            socios.sort();
+            console.log("Nombres de los socios ordenados alfabéticamente:");
+            for (var i = 0; i < socios.length; i++) {
+                console.log(socios[i]);
+            }
+
+            // Mostrar los nombres de los socios en orden inverso al introducido
+            console.log("Nombres de los socios en orden inverso:");
+            for (var i = socios.length - 1; i >= 0; i--) {
+                console.log(socios[i]);
+            }
+        </script>
+    </body>
+</html>
+
