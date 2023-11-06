@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <script>
+            let suma = 0;
+            let contador = 0;
+
+            while (true) {
+                let numero = parseFloat(prompt("Introduce un número (negativo para terminar):"));
+                if (numero < 0) break;
+                    suma += numero;
+                    contador++;
+            }
+
+            if (contador > 0) {
+                const media = suma / contador;
+                console.log(`Suma: ${suma}, Media: ${media}`);
+            } else {
+                console.log("No se introdujeron números válidos.");
+            }
+        </script>
+    </body>
+</html>
