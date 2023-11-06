@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <script>
+            // Definir la altura del rombo
+            var altura = 7; // Ajusta la altura según tus necesidades
+
+            // Dibujar la mitad superior del rombo
+            for (var i = 1; i <= altura; i += 2) {
+                // Calcular la cantidad de espacios en blanco necesarios antes de los asteriscos
+                var espacios = " ".repeat((altura - i) / 2);
+                // Crear una cadena de asteriscos para esta línea
+                var asteriscos = "*".repeat(i);
+                // Imprimir la línea con espacios y asteriscos
+                console.log(espacios + asteriscos);
+            }
+
+            // Dibujar la mitad inferior del rombo
+            for (var i = altura - 2; i >= 1; i -= 2) {
+                // Calcular la cantidad de espacios en blanco necesarios antes de los asteriscos
+                var espacios = " ".repeat((altura - i) / 2);
+                // Crear una cadena de asteriscos para esta línea
+                var asteriscos = "*".repeat(i);
+                // Imprimir la línea con espacios y asteriscos
+                console.log(espacios + asteriscos);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador de Patrones</title>
+</head>
+<body>
+    <h1>Contador de Patrones</h1>
+    <textarea id="inputText" rows="4" cols="50" placeholder="Introduce una cadena de texto"></textarea>
+    <button onclick="contarPatrones()">Contar Patrones</button>
+    <div id="result"></div>
+
+    <script>
+        function contarPatrones() {
+            // Obtener el texto de la entrada del usuario y convertirlo a minúsculas
+            var texto = document.getElementById("inputText").value.toLowerCase();
+            var contador = 0;
+
+            // Función para contar cuántas veces aparece un patrón en el texto
+            function contarPatron(patron) {
+                var posicion = 0;
+                while ((posicion = texto.indexOf(patron, posicion)) !== -1) {
+                    // Aumentar el contador cuando se encuentra un patrón
+                    contador++;
+                    // Mover la posición para buscar el próximo patrón
+                    posicion += 1;
+                }
+            }
+
+            // Contar los patrones "00", "101", "abc" y "h0"
+            contarPatron("00");
+            contarPatron("101");
+            contarPatron("abc");
+            contarPatron("h0");
+
+            // Mostrar el resultado en la página
+            document.getElementById("result").innerHTML = "Número de patrones encontrados: " + contador;
+        }
+    </script>
+</body>
+</html>

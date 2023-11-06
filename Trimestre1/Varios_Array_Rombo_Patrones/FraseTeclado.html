@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <script>
+            // Solicitar una frase desde el teclado
+            var frase = prompt("Introduce una frase:");
+
+            // Dividir la frase en palabras utilizando el espacio como separador
+            var palabras = frase.split(" ");
+
+            // Verificar si se ingresó al menos una palabra
+            if (palabras.length > 0) {
+                // Mostrar la primera palabra de la frase
+                console.log("Primera palabra: " + palabras[0]);
+
+                // Mostrar la última palabra de la frase
+                console.log("Última palabra: " + palabras[palabras.length - 1]);
+
+                // Mostrar el número de palabras de la frase
+                console.log("Número de palabras: " + palabras.length);
+            } else {
+                console.log("No se ingresaron palabras en la frase.");
+                }
+        </script>
+    </body>
+</html>
+
+
+
+
