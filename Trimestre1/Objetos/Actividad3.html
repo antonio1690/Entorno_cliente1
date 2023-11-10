@@ -1,9 +1,6 @@
 <html>
-<head>
-    <title>Document</title>
-</head>
-<body>
-    <script>
+    <body>
+        <script>
             <!--! CREAR UN OBJETO PRODUCTOS
             function productos(nom,categoria,unidades,precio) {
                 this.nombre = nom;
@@ -13,31 +10,44 @@
                 this.importe = function () {
                     return this.unidades * this.precio;
                 }
-                this.toString = function () {
+                this.getInfo = function () {
                     return "Nombre: "+ this.nombre + "\n Categoria: "+ this.categoria + "\n Unidades: "+ this.unidades + "\n Precio: "+ this.precio + "\n Importe: "+ this.importe();
+                }
+                this.valueof = function () {
+                    return this.importe();
                 }
             }
 
             let Kinder = new productos("Kinder bueno", "Dulce", 2, 3.50);
             let Sillas = new productos ("Sillas gamer", "Gaming", 10, 150);
             let Monitor = new productos("Monitor", "Oficina", 5, 78);
-            alert ("Informacion de 3 productos diferentes:\n" + Kinder.toString() + "\n" + Sillas.toString() + "\n" +  Monitor.toString());
+            alert ("Informacion de 3 productos diferentes:\n" + Kinder.getInfo() + "\n" + Sillas.getInfo() + "\n" +  Monitor.getInfo());
+
 
             <!--! CREAR UN OBJETO TELEVISORES-->
             function Televisores(nom, categoria, unidades, precio, tamaño) {
                 productos.call(this, nom, categoria, unidades, precio);
                 this.tamaño = tamaño;
-                this.toString = function () {
+                this.getInfo = function () {
                     return " "+ this.nombre + " Tamaño: "+ this.tamaño;
+                }   
+                this.valueof = function () {
+                    return this.precio;
                 }
             }
 
             let Sony = new Televisores("Televisor Sony", "Televisor", 2, 345.95, 4);
-            alert ("Nombre y tamaño del televisor:" + Sony.toString());
-        
+            alert ("Nombre y tamaño del televisor:" + Sony.getInfo());
 
-        //LA FUNCION CALL SIRVE PARA PASAR ATRIBUTOS Y LA FUNCION PROTOTYPE SIRVE PARA PASAR METODOS
+            // Usar la funcion valueOf() de la siguiente manera
+            let ValorTotal = Kinder.valueof() + Sillas.valueof() + Monitor.valueof() + Sony.valueof();
+            alert ("Valor total: " + ValorTotal);
+            
 
-    </script>
-</body>
+
+
+
+
+        </script>
+    </body>
 </html>
