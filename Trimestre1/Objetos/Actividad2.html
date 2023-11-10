@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Define la clase base 'productos'
+        function Productos(nom, categoria, unidades, precio) {
+            this.nombre = nom;
+            this.categoria = categoria;
+            this.unidades = unidades;
+            this.precio = precio;
+        }
+
+        // Agrega el método toString a la clase base 'productos'
+        Productos.prototype.toString = function () {
+            return "Nombre: " + this.nombre + ", Categoría: " + this.categoria + ", Unidades: " + this.unidades + ", Precio: " + this.precio;
+        }
+
+
+
+
+
+        // Define la subclase 'Televisores'
+        function Televisores(nom, categoria, unidades, precio, tamaño) {
+            Productos.call(this, nom, categoria, unidades, precio);
+            this.tamaño = tamaño;
+        }
+
+        // Hereda el prototipo de 'productos' en 'televisores'
+        Televisores.prototype = Object.create(Productos.prototype);
+
+        // Agrega el método toString a la clase 'Televisores'
+        Televisores.prototype.toString = function () {
+            return Productos.prototype.toString.call(this) + ", Tamaño: " + this.tamaño;
+        }
+
+        // Crea una instancia de 'Televisores'
+        let Sony = new Televisores("Televisor Sony", "Televisor", 2, 345.95, 4);
+
+        // Muestra la alerta con la información
+        alert("Información del televisor: " + Sony.toString());
+
+
+        <!--! LA FUNCION CALL SIRVE PARA PASAR ATRIBUTOS Y LA FUNCION PROTOTYPE SIRVE PARA PASAR METODOS-->
+
+    </script>
+</body>
+</html>

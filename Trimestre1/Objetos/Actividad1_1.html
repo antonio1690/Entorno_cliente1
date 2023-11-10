@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        <!--! CREAR UN OBJETO TVSAMSUNG
+        function tvSamsung(nom,categoria,unidades,precio) {
+            this.nombre = nom;
+            this.categoria = categoria;
+            this.unidades = unidades;
+            this.precio = precio;
+            this.importe = function () {
+                return this.unidades * this.precio;
+            }
+        }
+        let Samsung = new tvSamsung("TV SAMSUNG 42", "Televisor", 4, 345.95);
+        console.log ("Nombre: "+ Samsung.nombre + ", categoria: "+ Samsung.categoria + ", importe: "+ Samsung.importe());
+
+
+        <!--! CREAR UN OBJETO PRODUCTOS
+            function productos(nom,categoria,unidades,precio) {
+                this.nombre = nom;
+                this.categoria = categoria;
+                this.unidades = unidades;
+                this.precio = precio;
+                this.importe = function () {
+                    return this.unidades * this.precio;
+                }
+                this.getInfo = function () {
+                    return "Nombre: "+ this.nombre + "\n Categoria: "+ this.categoria + "\n Unidades: "+ this.unidades + "\n Precio: "+ this.precio + "\n Importe: "+ this.importe();
+                }
+            }
+            let Kinder = new productos("Kinder bueno", "Dulce", 2, 3.50);
+            let Sillas = new productos ("Sillas gamer", "Gaming", 10, 150);
+            let Monitor = new productos("Monitor", "Oficina", 5, 78);
+            alert ("Informacion de 3 productos diferentes:\n" + Kinder.getInfo() + "\n" + Sillas.getInfo() + "\n" +  Monitor.getInfo());
+
+
+            <!--! CREAR UN OBJETO TELEVISORES-->
+            function Televisores(nom, categoria, unidades, precio, tamaño) {
+                productos.call(this, nom, categoria, unidades, precio);
+                this.tamaño = tamaño;
+                this.getInfo = function () {
+                    return " "+ this.nombre + " Tamaño: "+ this.tamaño;
+                }   
+            }
+            let Sony = new Televisores("Televisor Sony", "Televisor", 2, 345.95, 4);
+            alert ("Nombre y tamaño del televisor:" + Sony.getInfo());
+            
+
+
+
+
+
+
+        /*function Persona(nom, ape, ed){
+            this.nombre = nom;
+            this.apellido = ape;
+            this.edad = ed;
+            this.nombreCompleto = function(){
+                return this.nombre + " " + this.apellido;
+            }
+        }
+        var ana = ("Ana", "Hoyo", "23");
+        var paco = new Persona("Paco", "Martinez", "27");
+        ana.nacionalidad = "inglesa";
+        alert(ana.nacionalidad);
+        alert(paco.nacionalidad);
+
+        Persona.prototype.fecha = "1980";
+        alert(paco.fecha);
+    */
+    </script>
+</body>
+</html>
