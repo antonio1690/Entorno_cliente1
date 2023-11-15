@@ -1,0 +1,192 @@
+<html lang="en">
+    <head>
+        <title> Aprendiendo arrays </title>
+    </head>
+    <body>
+        <script>
+            // Declaracion e inicializacion de variables
+            var nombre = "Maxwell Wright";
+            var nombre1 = "Raja Villareal";
+            var nombre2 = "Helen Richards";
+
+            var telefono = "719-6495";
+            var telefono1 = "0866-398-2895";
+            var telefono2 = "0800-1111";
+
+            var correo = "Curabitur.egestas.nunc@nonummyac.co.uk";
+            var correo1 = "posuere.vulputate@sed.com";
+            var correo2 = "libero@convallis.edu";
+
+            // Mostrar informacion del primer y ultimo contacto
+            console.log("Informacion del primer contacto");
+            console.log("Nombre" + nombre);
+            console.log("Telefono" + telefono);
+            console.log("Correo" + correo);
+
+            console.log("Informacion del ultimo contacto");
+            console.log("Nombre" + nombre2);
+            console.log("Telefono" + telefono2);
+            console.log("Correo" + correo2);
+        </script>
+
+        <script>
+            var contactos = [
+                { 
+                    nombre: "Maxwell Wright",
+                    nombre1: "Raja Villareal",
+                    nombre2: "Helen Richards"
+                },
+
+                {
+                    telefono: "719-6495",
+                    telefono1: "0866-398-2895",
+                    telefono2: "0800-1111"
+                },
+
+                {     
+                    correo: "Curabitur.egestas.nunc@nonummyac.co.uk",
+                    correo1: "posuere.vulputate@sed.com",
+                    correo2: "libero@convallis.edu",
+                }
+            ];
+
+            // Añadir nuevo contacto
+            var nuevoContacto = {
+                nombre: "Maisie Haley",
+                telefono: "0913-531-3030",
+                correo: "risus.Quisque@urna.ca."
+            };
+            contactos.push(nuevoContacto);
+
+            // Mostrar primer y ultimo contacto de la lista
+            console.log("Primer Contacto");
+            console.log(contactos[0].nombre + "/" +contactos[0].telefono + "/" +contactos[0].correo);
+            
+            console.log("Ultimo Contacto");
+            console.log(contactos[contactos.length - 1].nombre + "/" +contactos[contactos.length -1].telefono + "/"+ contactos[contactos.length-1].correo);
+
+        </script>
+
+        <script>
+                // Array de contactos
+                var contactos = [
+                { 
+                    nombre: "Maxwell Wright",
+                    nombre1: "Raja Villareal",
+                    nombre2: "Helen Richards"
+                },
+
+                {
+                    telefono: "719-6495",
+                    telefono1: "0866-398-2895",
+                    telefono2: "0800-1111"
+                },
+
+                {     
+                    correo: "Curabitur.egestas.nunc@nonummyac.co.uk",
+                    correo1: "posuere.vulputate@sed.com",
+                    correo2: "libero@convallis.edu",
+                }
+            ];
+
+            // Agregar contacto introducido por consola
+            var nombre = prompt("Introduce el nombre");
+            var telefono = prompt("Introduce el teléfono");
+            var correo = prompt("Introduce el correo electronico");
+
+            // Creamos un objeto para el nuevo contacto
+            var nuevoContacto = {
+                nombre: NuevoNombre,
+                telefono: NuevoTelefono,
+                correo: NuevoCorreo
+            };
+
+            // Agregamos el nuevo contacto al array
+            contactos.push(nuevoContacto);
+
+            // Mostramos la informacion del primer y ultimo contacto
+            console.log("Primer Contacto");
+            console.log(contactos[0].nombre + "/" +contactos[0].telefono + "/" +contactos[0].correo);
+
+            console.log("Ultimo Contacto");
+            console.log(contactos[contactos.length-1].nombre + "/" + contactos[contactos.length-1].telefono + "/" + contactos[contactos.length-1].correo);
+        </script>
+
+        <script>
+                // Array de contactos
+                var contactos = [
+                { 
+                    nombre: "Maxwell Wright",
+                    nombre1: "Raja Villareal",
+                    nombre2: "Helen Richards"
+                },
+
+                {
+                    telefono: "719-6495",
+                    telefono1: "0866-398-2895",
+                    telefono2: "0800-1111"
+                },
+
+                {     
+                    correo: "Curabitur.egestas.nunc@nonummyac.co.uk",
+                    correo1: "posuere.vulputate@sed.com",
+                    correo2: "libero@convallis.edu",
+                }
+            ];
+
+            // Funcion para mostrar la informacion del primer contacto
+            function PrimerContacto() {
+                console.log("El primer contacto es:"+contactos[0].nombre+"/ "+contactos[0].telefono+ "/ " + contactos[0].correo);
+            }
+
+            // Funcion para mostrar la informacion del ultimo contacto
+            function UltimoContacto() {
+                console.log("El ultimo contacto es:"+contactos[contactos.length-1].nombre + "/ " + contactos[contactos.length-1].telefono + "/ " + contactos[contactos.length-1].correo);
+            }
+
+            // Funcion para agregar nuevo contacto
+            function AgregarContacto(){
+                // Variables para los nuevos valores a ingresar
+                var nombreNuevo = prompt("Dime un nombre");
+                var telefonoNuevo = prompt("Dime un telefono");
+                var correoNuevo = prompt("Dime un correo electronico");
+            
+
+                // Comprobar si hemos metido todos los datos
+                if (nombreNuevo && telefonoNuevo  && correoNuevo ){
+                    // Metemos las variables en un objeto
+                    var nuevoContacto = {
+                        nombre : nombreNuevo,
+                        telefono : telefonoNuevo,
+                        correo : correoNuevo
+                    };
+                    // Añadir el nuevo contacto al array
+                    contactos.push(nuevoContacto);
+                    alert ("Se ha añadido correctamente!");
+
+                }else{
+                    alert ("No se han introducido todos los campos");
+                }
+            }
+
+            // Pedir al usuario que eliga una opcion
+            var eleccionUsuario = prompt("Eliga una opcion de las siguientes: \n -Mostrar el primer contacto(primero) \n -Mostrar el ultimo contacto(ultimo) \n -Anadir un nuevo contacto ");
+
+            // El usuario elige la opcion que desea
+            switch (eleccionUsuario) {
+                case 'primero':
+                    PrimerContacto();
+                    break;
+                case 'ultimo':
+                    UltimoContacto();
+                    break;
+                case 'nuevo':
+                    AgregarContacto()
+                    break;
+                default:
+                    console.log("No has seleccionado ninguna de las opciones mostradas");
+                    break;
+            }
+        </script>
+    </body>
+</html>
