@@ -1,0 +1,152 @@
+<html>
+    <body>
+        <!--! DEFINICION DE JAVASCRIPT -->
+        <script>
+            // ¿QUE ES JAVASCRIPT?
+            /* Es un lenguaje de programacion,una herramienta que permite dar instrucciones a un ordenador
+            a traves de codigo que esta estructurado que sigue la logica de programacion
+            Es un lenguaje interpretado: se ejecuta directamente en el navegador,cuya herramienta interprete
+            traduce el codigo en tiempo real.
+            Es orientado a objetos, es decir, su estructura abarca toda las caracteristicas de la programacion orientada a objetos
+            (clase,herencia,polimorfismo).
+            Es imperativo, todas las instrucciones van de linea a linea.
+            Es sensible a mayuculas y minusculas
+            Basado en instancias, prototipos y classless, los objetos seran construidos a traves de otros objetos que ya estaban creados
+            Es de tipado debil, el valor de las variables puede cambiar con el paso del tiempo.
+            Tiene lenguaje dinamico, el dato se ajusta a la variable.
+            */
+        </script>
+
+        <!--! VARIABLES DE JAVASCRIPT-->
+        <script>
+
+            // VARIABLES (Espacio que se guarda en la memoria)
+
+                // DECLARACION DE VARIABLES (var,let,const)
+                    // Const, se define una vez y no se puede utilizar nunca mas.
+                        const dato = 5.14;
+                    // Let, se puede inicializar y modificar por su parte y tiene menos alcanze por lo que afecta menos a los programas
+                        let nombre = "Antonio";
+                    // Var, lo mismo que let pero es de alcanze global
+                        var edad = 23;
+
+                // TIPOS DE DATOS
+                    String = "cadena de texto"
+                    Number = 19
+                    Boolean = true
+
+                // CASOS ESPECIALES DE DATOS (Undefined, null, NaN)
+                    // Undefined, existe en el programa pero no tiene ningun valor
+                    // Null, tiene un valor nulo ,es decir, vacia.
+                        let numero = null;
+                    // NaN, no es un numero
+                        let numero1 = 5;
+                        let numero2 = "pedro";
+                        alert (numero1 * numero2); // NaN
+
+                // SCOPE (El ambito de las variables, es decir, su alcanze)
+
+                // HOISTING 
+
+
+
+                // PRUEBAS CON PROMPT
+                    let nombre1 = prompt ("Decime tu nombre");
+                    alert(nombre1);
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+        <!--! OPERADORES EN JAVASCRIPT -->
+        <script>
+            // OPERADORES ARITMETICOS (Toman valores numericos y devuelven un valor numerico unico)
+            // OPERADORES DE ASIGNACION (Asignan un valor al operador de la izquierda basado en el operador de la derecha)
+                let numero3 = 20;
+                numero3 += 5; // Le estamos sumando 5 a numero
+                document.write(numero3); // Lo muestra en la pantalla
+
+                let numero4 = 10;
+                numero4 %= 4; // Divide en numeros enteros y muestra el resto de la division
+        </script>
+
+        <!--! CONCATENACION -->
+        <script>
+            // DEFINICION 
+                numero = 5
+                numero1 = 8
+                frase = " " + numero + numero1; // Al estar las "" detecta una cadena y muestra 58
+                alert(frase);
+            
+            // FUNCION CONCAT
+                numero = 1;
+                numero1 = 3;
+                frase = numero.concat(numero1);
+                alert(frase);
+            
+            // VARIABLE ${}
+                nombre = "Antonio Ciobanu";
+                frase = `soy ${nombre} y estoy caminando`;
+        </script>
+
+        <!--! OPERADORES COMPARACION Y LOGICOS -->
+        <script>
+            // EQUIVALENCIA ==, !=, Misma identidad, mismo tipo de datos y valor (===), Distinta identidad (!==)
+            let edad = 27;
+            let edad2 = 23;
+            let texto1 = "texto1";
+            let texto2 = "texto2";
+            document.write(edad == edad2);
+
+            // AND (&&)
+            if(edad >= 18 && edad <= 60){
+                document.write("Eres mayor");
+            }
+            // OR (||)
+            if(edad > 19 || edad < 20){
+                document.write("Eres menor");
+            }
+            // NOT (!)
+            if(!(edad >= 18)){
+                document.write("No eres mayor");
+            }
+
+        </script>
+
+        <!--! CAMEL CASE -->
+        <script>
+            // La primera letra de la palabra va con minusculas y las siguientes con mayusculas
+            document.getElementById(); 
+        </script>
+    </body>
+</html>
