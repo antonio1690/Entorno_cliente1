@@ -1,0 +1,132 @@
+<html>
+    <body>
+        <script>
+            /* PROBLEMA DE COFLA
+            Un joven afortunado logra ganar el primer premio de la loteria y este decide
+            darselo a un pobre que a su vez decide hacer una fiesta para festejar 
+            que salio de la pobreza, compro una maquina que deja pasar solamente
+            a los mayores de edad, entre otras cosas...
+            -Dejar pasar solo a los mayores de edad
+            -La primer persona que entre despues de las 2 AM, no paga
+            */
+
+            let free = false;
+
+            const validarCliente = (time)=> {
+                let edad = prompt("¿Cual es tu edad?");
+                if (edad > 18){
+                    if (time >= 2 && time < 7 && free == false) {
+                        alert("podes pasar gratis")
+                        free = true;
+                    }else {
+                        alert("podes pasar, pero tenes que pagar la entrada");
+                    }
+                }else {
+                    alert ("no podes pasar, eres menor de edad");
+                }
+            }
+
+            validarCliente(23);
+
+
+
+
+        </script>
+
+        <script>
+            /* Cofla vuelve de la comisaria exausto y se fue a dormir
+            Al otro dia comienzan las clases del ciclo.
+            En su curso son 19 alumnos, pero surgio un problema:
+            se rompio el sistema de registro de asistencias y durante los proximos 30 dias
+            no se podran hacer registros de datos de ningun tipo, por ende las clases 
+            no comenzaran hasta que este arreglado.
+            - Crear mini-sistema que permita registrar a alumnos que esten presentes(P)
+            y ausentes(A) en clase
+            - Pasados los 30 dias mostrar la solucion final de todos los alumnos
+            - Se puede tener un maximo de 10% de ausencias por semestre, si se tienen mas
+            repetira
+            */
+
+            let cantidad = prompt ("¿Cuantos alumnos hay?");
+            let clase = [];
+            for (let alumnos = 0; alumnos < cantidad; alumnos++) {
+                clase[alumnos] = [prompt("Nombre del alumno" + (alumnos+1)),0] // EL 0 ES LA CANTIDAD DE ASISTENCIAS QUE TIENE    
+            }
+
+            /* TENEMOS 2 POSICIONES 
+            1º clase[alumnos][0] ESTE ES PARA EL NOMBRE DEL ALUMNO
+            2º clase[alumnos][1] ESTE ES PARA EL NUMERO DE ASISTENCIAS
+            */
+            
+
+            let tomarAsistencia = (nombre) => {
+                let presencia = prompt(nombre);
+                if (presencia == "p" || presencia == "P") {
+                    clase[alumnos][1]++; // ESTAMOS ACCEDIENDO AL PRIMER ELEMENTO DEL ARRAY
+                }
+            }
+
+            for (i = 0; i < 30; i++){
+                for (alumno in clase) {
+                    tomarAsistencia(clase[alumno][0]); // CON EL 0 ACCEDEMOS SOLO AL NOMBRE
+                }
+            }
+
+            for (alumno in clase) {
+                let resultado = `${clase[alumno][0]}: <br>
+                _____Presente: ${clase[alumno][1]} <br> // CON EL 1 ACCEDEMOS AL NUMERO DE ASISTENCIAS
+                _____Ausencias: ${30 - clase[alumno][1]}
+                `;
+                if (30 - clase[alumno][1] > 18 ) {
+                    resultado += "REPROBADO POR INASISTENCIAS";
+                }else {
+                    resultado += "<br><br>";
+                }
+                document.write(resultado);
+            }
+        </script>
+
+        <script>
+            /* CALCULADORA */
+            function calcularSuma(num1,num2) {
+                return parseInt(num1) + parseInt(num2);
+            }
+            function calcularResta(num1,num2) {
+                return parseInt(num1) - parseInt(num2);
+            }
+            function calcularMultiplicacion(num1,num2) {
+                return parseInt(num1) * parseInt(num2);
+            }
+            function calcularDivision(num1,num2) {
+                return parseInt(num1) / parseInt(num2);
+            }
+
+            alert ("Elige la opcion que desee realizar:");
+            let opcion = prompt("1:Sumar \n 2:Restar \n 3: Multiplicar \n 4:Dividir");
+
+            if (opcion == 1) {
+                let num1 = prompt("Ingrese el primer numero");
+                let num2 = prompt("Ingrese el segundo numero");
+                alert(`La suma de los numeros es: ${calcularSuma(num1,num2)}`);
+            }
+
+            if (opcion == 2) {
+                let num1 = prompt("Ingrese el primer numero");
+                let num2 = prompt("Ingrese el segundo numero");
+                alert (`La resta del primer y segundo numero es: ${calcularResta(num1,num2)}`);
+            }
+
+            if (opcion == 3) {
+                let num1 = prompt("Ingrese el primer numero");
+                let num2 = prompt("Ingrese el segundo numero");
+                alert (`La multiplicación de los dos numeros es: ${calcularMultiplicacion(num1,num2)}`);
+            }
+
+            if (opcion == 4) {
+                let num1 = prompt("Ingrese el primer numero");
+                let num2 = prompt("Ingrese el segundo numero");
+                alert (`La división del primero entre el segundo es: ${calcularDivision(num1,num2)}`);
+            }
+        </script>
+    </body>
+</html>

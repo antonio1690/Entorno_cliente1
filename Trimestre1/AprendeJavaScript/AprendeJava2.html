@@ -1,0 +1,101 @@
+<html>
+    <body>
+        <!--! ARRAYS -->
+        <script>
+            // FORMAS DE CREAR UN ARRAY
+            let frutas = ["banana", "manzana", "pera"];
+            // MOSTRAR UN ELEMENTO DEL ARRAY CON document.write
+            document.write("El primer elemento del array es: ", frutas[0], "<br/>");
+        </script>
+
+        <!--! ARRAYS ASOCIATIVOS -->
+        <script>
+            //FORMAS DE CREAR UN ARRAY ASOCIATIVO
+            let pc = {
+                nombre:"DaltoPC",
+                procesador: "Intel Core I7",
+                ram: "16GB",
+                espacio: "1TB"
+                };
+            frase = `el nombre de mi pc es: ${nombre} <br> 
+                    el procesador de mi pc es: ${procesador} <br>
+                    la ram de pi pc es: ${ram} <br>
+                    el espacio en disco duro es: ${espacio}`;
+            document.write(frase);
+        </script>
+
+        <!--! BUCLES E ITERACION -->
+        <script>
+            // BUCLE WHILE (PRIMERO LEE LA SENTENCIA Y LUEGO LA REALIZA)
+            numero = 0;
+            while (numero < 6){
+                document.write(`${numero}<br>`);
+            };
+            
+            // BUCLE DO WHILE (PRIMERO HACE EL DO Y LUEGO SI CUMPLE EL WHILE SE REALIZA)
+            contador = 5;
+            do {
+                document.write(`${contador}<br>`);
+            }
+            while (contador < 6);
+
+            // SENTENCIA BREAK
+            while (numero < 1000) {
+                numero++;
+                document.write(numero);
+                if (numero == 10) {
+                    break; // SIRVE PARA ROMPER LA SENTENCIA Y NO CONTINUAR
+                }
+            }
+
+            // BUCLE FOR (1º DECLARACION 2º CONDICION 3º AUMENTO-DECREMENTO)
+            for (let i=0; i<=9;i++){
+                if(i==5) {
+                    continue; // SIRVE PARA SALTAR LA CONDICION
+                }
+                document.write(i + "<br>")
+            }
+
+            // BUCLE FOR IN (NOS MUESTRA LA POSICION DEL ELEMENTO) Y FOR OF (NOS MUESTRA EL VALOR DEL ELEMENTO)
+            animales = ["gato","perro","tiranosaurio rex"];
+            for (let animal of animales) {
+                document.write(animal+"<br>" );
+            }
+            for (animal in animales){
+                document.write(animal+"<br>" );
+            }
+
+        </script>
+
+        <!--! FUNCIONES -->
+        <script>
+            // DEFINICION 
+            function saludar() {
+                alert("Hola, soy una función");
+                return 4; // TERMINA LA FUNCION LO QUE SIGA DESPUES NO SE MUESTRA
+            }
+            // LLamada a la función
+            saludar();
+
+            // PARAMETROS
+            function suma (num1,num2){ // ESTO ES COMO INICAR LA VARIABLE PERO DENTRO DE LA FUNCION
+                let resultado = num1+num2;
+                document.write(resultado);   
+            }
+            suma(7,8);
+
+            function saludar(nombre) {
+                let frase = `Hola mi nombre es ${nombre}`;
+                document.write(frase);
+            }
+            saludar("siuuu");
+
+            // FUNCIONES FLECHA
+            const saludar = nombre => {
+                let frase = `Hola mi nombre es ${nombre}`
+            }
+            saludar("pedro");
+
+        </script>
+    </body>
+</html>
