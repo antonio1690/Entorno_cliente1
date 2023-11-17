@@ -1,0 +1,66 @@
+<html>
+    <body>
+        <script>
+// Crear productos como objetos literales
+const producto1 = { nombre: "Producto C", precio: 25.50, unidades: 10 };
+const producto2 = { nombre: "Producto A", precio: 15.75, unidades: 5 };
+const producto3 = { nombre: "Producto B", precio: 30.00, unidades: 8 };
+const producto4 = { nombre: "Producto D", precio: 12.99, unidades: 15 };
+const producto5 = { nombre: "Producto E", precio: 18.49, unidades: 7 };
+
+// Guardar productos en un array
+const productosArray = [producto1, producto2, producto3, producto4, producto5];
+
+// Función para ordenar productos por nombre
+function prodOrdenPorNombre(array) {
+  // Se utiliza slice para crear una copia del array original y no modificarlo directamente
+  return array.slice().sort((a, b) => a.nombre.localeCompare(b.nombre));
+}
+
+// Función para ordenar productos por precio
+function prodOrdenPorPrecio(array) {
+  return array.slice().sort((a, b) => a.precio - b.precio);
+}
+
+// Función para obtener el importe total de los productos
+function prodPrecioTotal(array) {
+  // Se utiliza reduce para sumar el importe total de los productos
+  const total = array.reduce((acc, producto) => acc + producto.precio * producto.unidades, 0); // EL ACC ES UN ACUMULADOR SE REALIZA EL PRECIO * UNIDADES DEL PRIMER PRODUCTO Y SE ACUMULA EN EL ACC Y ASI HASTA LLEGAR A LA ULTIMA POSICION, EL 0 REPRESENTA QUE SE INICIA EN LA POSCION 1 DEL ARRAY
+  // Se redondea el resultado a dos decimales
+  return total.toFixed(2);
+}
+
+// Función para obtener productos con menos unidades que el valor dado
+function prodConMenosUnidades(array, cantidad) {
+  // Se utiliza filter para obtener los productos que tienen menos unidades que la cantidad indicada
+  return array.filter(producto => producto.unidades < cantidad);
+}
+
+// Función para obtener una cadena con el listado de productos
+function prodLista(array) {
+  // Se utiliza map para transformar cada producto en una cadena con su información
+  const lista = array.map(producto => `- ${producto.nombre}, Precio: $${producto.precio.toFixed(2)}, Unidades: ${producto.unidades}`);
+  // Se concatena la cadena resultante con el encabezado
+  return `Listado de productos:\n${lista.join('\n')}`;
+}
+
+// Ejemplos de uso
+const productosOrdenadosPorNombre = prodOrdenPorNombre(productosArray);
+console.log("Productos ordenados por nombre:", productosOrdenadosPorNombre);
+
+const productosOrdenadosPorPrecio = prodOrdenPorPrecio(productosArray);
+console.log("Productos ordenados por precio:", productosOrdenadosPorPrecio);
+
+const importeTotal = prodPrecioTotal(productosArray);
+console.log("Importe total de los productos:", importeTotal);
+
+const productosConMenosUnidades = prodConMenosUnidades(productosArray, 10);
+console.log("Productos con menos de 10 unidades:", productosConMenosUnidades);
+
+const listaDeProductos = prodLista(productosArray);
+console.log(listaDeProductos);
+
+            
+        </script>
+    </body>
+</html>
