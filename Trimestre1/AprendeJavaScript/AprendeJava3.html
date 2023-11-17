@@ -27,10 +27,6 @@
             }
 
             validarCliente(23);
-
-
-
-
         </script>
 
         <script>
@@ -58,14 +54,15 @@
             2º clase[alumnos][1] ESTE ES PARA EL NUMERO DE ASISTENCIAS
             */
             
-
+            // PASAMOS ASISTENCIAS Y AUMENTAMOS SEGUN SI ESTA PRESENTE
             let tomarAsistencia = (nombre) => {
-                let presencia = prompt(nombre);
+                let presencia = prompt("nombre");
                 if (presencia == "p" || presencia == "P") {
                     clase[alumnos][1]++; // ESTAMOS ACCEDIENDO AL PRIMER ELEMENTO DEL ARRAY
                 }
             }
 
+            // MOSTRAMOS LOS DATOS FINALIZADOS FINALIZADOS 30 DIAS
             for (i = 0; i < 30; i++){
                 for (alumno in clase) {
                     tomarAsistencia(clase[alumno][0]); // CON EL 0 ACCEDEMOS SOLO AL NOMBRE

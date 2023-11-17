@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <script>
+var clase = {
+  alumno1: ["Juan"],
+  alumno2: ["María"],
+  alumno3: ["Pedro"]
+};
+
+
+
+function tomarAsistencia(nombre) {
+  console.log("Presente: " + nombre);
+}
+
+for (var alumno in clase) { // LA VARIABLE ALUMNO TOMA LA PROPIEDADES DE CLASE 
+  tomarAsistencia(alumno + ": "+ clase[alumno]);
+}
+
+        </script>
+    </body>
+</html>
