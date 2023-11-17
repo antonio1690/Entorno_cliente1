@@ -18,5 +18,101 @@ for (var alumno in clase) { // LA VARIABLE ALUMNO TOMA LA PROPIEDADES DE CLASE
 }
 
         </script>
+
+        <script>
+            let texto = "Hola, mundo!";
+console.log(texto.length); // Mostrará 12
+
+let saludo = "Hola, ";
+let nombre = "Juan";
+let mensaje = saludo.concat(nombre);
+console.log(mensaje); // Mostrará "Hola, Juan"
+
+let minusculas = "hola";
+let mayusculas = minusculas.toUpperCase();
+console.log(mayusculas); // Mostrará "HOLA"
+
+let mayusculas1 = "HOLA";
+let minusculas1 = mayusculas1.toLowerCase();
+console.log(minusculas1); // Mostrará "hola"
+
+let frase = "¡Hola, mundo!";
+let indice = frase.indexOf("mundo");
+console.log(indice); // Mostrará 7
+
+
+let mensaje1 = "Hola, mundo!";
+let subcadena = mensaje1.substring(0, 5);
+console.log(subcadena); // Mostrará "Hola,"
+
+let saludo1 = "Hola, nombre!";
+let nuevoSaludo = saludo1.replace("nombre", "Juan");
+console.log(nuevoSaludo); // Mostrará "Hola, Juan!"
+
+let palabra = "JavaScript";
+let caracter = palabra.charAt(4);
+console.log(caracter); // Mostrará "S"
+
+let lista = "manzana,pera,uva";
+let frutas = lista.split(",");
+console.log(frutas); // Mostrará ["manzana", "pera", "uva"]
+
+let espacios = "   Hola, mundo!   ";
+let sinEspacios = espacios.trim();
+console.log(sinEspacios); // Mostrará "Hola, mundo!"
+
+
+
+
+
+
+
+
+
+        </script>
+
+        <script>
+let frutas1 = ["manzana", "pera"];
+frutas1.push("uva");
+console.log(frutas1); // Mostrará ["manzana", "pera", "uva"]
+
+let frutas2 = ["manzana", "pera", "uva"];
+let ultimaFruta = frutas2.pop();
+console.log(ultimaFruta); // Mostrará "uva"
+
+let frutas3 = ["manzana", "pera", "uva"];
+let primeraFruta = frutas3.shift();
+console.log(primeraFruta); // Mostrará "manzana"
+
+let frutas4 = ["pera", "uva"];
+frutas4.unshift("manzana");
+console.log(frutas4); // Mostrará ["manzana", "pera", "uva"]
+
+let frutas5 = ["manzana", "pera", "uva"];
+let indice2 = frutas5.indexOf("pera");
+console.log(indice2); // Mostrará 1
+
+let frutas6 = ["manzana", "pera", "uva"];
+frutas6.splice(1, 1, "banana");
+console.log(frutas6); // Mostrará ["manzana", "banana", "uva"]
+
+let frutas7 = ["manzana", "pera", "uva"];
+let nuevaFruta = frutas7.slice(1, 2);
+console.log(nuevaFruta); // Mostrará ["pera"]
+
+let frutas8 = ["manzana", "pera"];
+let frutas9 = ["uva", "banana"];
+let todasLasFrutas = frutas8.concat(frutas9);
+console.log(todasLasFrutas); // Mostrará ["manzana", "pera", "uva", "banana"]
+
+
+
+
+
+
+
+
+
+        </script>
     </body>
 </html>
