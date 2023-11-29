@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botón Interactivo</title>
+    <style>
+        /* Estilo inicial de la página */
+        body {
+            background-color: white;
+            transition: background-color 0.5s ease;
+        }
+
+        /* Estilo del botón */
+        #miBoton {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!--! WEB BOTON PULSAME SIN UTILIZAR DOM CON METODO DE INNERHTML Y ADDEVENTLISTENER-->
+    <!--! SI ESTA PULSADO LA PAGINA CAMBIA DE COLOR ALEATORIAMENTE-->
+    <!--! SI PULSA EN CUALQUIER OTRA PARTE VUELVE A BLANCO-->
+    <!--! CON EVENTOS(EVENT) MOSTRAR LA POSICION DEL RATON-->
+
+<!-- Botón con un id "miBoton" -->
+<button id="miBoton">Púlsame</button>
+
+<script>
+    
+    // Agregar un evento al cargar la página
+    window.onload = function() {
+        // Obtener el botón por su id
+        var boton = document.getElementById("miBoton");
+
+        // Agregar un evento al hacer clic en el botón
+        boton.addEventListener("click", function() {
+            // Cambiar el color de fondo de manera aleatoria
+            document.body.style.backgroundColor = ObtenerColorAleatorio();
+        });
+
+        // Agregar un evento al hacer clic en cualquier otra parte de la página
+        document.addEventListener("click", function(event) {
+            // Verificar que no se haya hecho clic en el botón con EVENT.TARGET
+            if (event.target !== boton) {
+                // Volver el color de fondo a blanco
+                document.body.style.backgroundColor = "white";
+            }
+        });
+
+        // Agregar un evento para mostrar la posición del ratón
+        document.addEventListener("mousemove", function(event) {
+            // Mostrar la posición del ratón en el elemento con id "posicionRaton"
+            document.getElementById("posicionRaton").innerHTML = "Posición del ratón: X=" + event.clientX + ", Y=" + event.clientY;
+        });
+    }
+
+    // Función para generar un color aleatorio en formato hexadecimal
+    function ObtenerColorAleatorio() {
+        var letras = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letras[Math.floor(Math.random() *15)];
+        }
+        return color;
+    }
+</script>
+
+<!-- Mostrar la posición del ratón -->
+<div id="posicionRaton"></div>
+
+</body>
+</html>

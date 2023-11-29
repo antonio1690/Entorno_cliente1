@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabecera Interactiva</title>
+    <style>
+        /* Estilo inicial de la cabecera */
+        #miCabecera {
+            cursor: pointer;
+            color:chartreuse;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Cabecera con un id "miCabecera" -->
+<h1 id="miCabecera" onmouseover="cambiarColor('red')" onmouseout="cambiarColor('yellow')" onclick="cambiarTexto()">Haz clic aquí</h1>
+
+<script>
+    // Función para cambiar el texto al hacer clic
+    function cambiarTexto() {
+        document.getElementById("miCabecera").innerHTML = "MI TEXTO";
+    }
+
+    // Función para cambiar el color al pasar el ratón
+    function cambiarColor(color) {
+        document.getElementById("miCabecera").style.color = color;
+    }
+</script>
+
+</body>
+</html>
