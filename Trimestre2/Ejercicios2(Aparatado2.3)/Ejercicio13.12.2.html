@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const usuarios = [
+  { id: 1, nombre: 'Juan', edad: 25 },
+  { id: 2, nombre: 'María', edad: 30 },
+  { id: 3, nombre: 'Pedro', edad: 20 },
+  { id: 4, nombre: 'Ana', edad: 35 },
+];
+
+// Paso 2: Duplicar la edad de los usuarios filtrados
+const edadesDuplicadas = usuariosMayoresDe25.map(usuario => ({
+  ...usuario,
+  edadDuplicada: usuario.edad * 2,
+}));
+
+// Paso 3: Obtener la suma total de las edades duplicadas
+const sumaTotalEdadesDuplicadas = edadesDuplicadas.reduce(
+  (acumulador, usuario) => acumulador + usuario.edadDuplicada,
+  0
+);
+
+console.log("Edades duplicadas:", edadesDuplicadas);
+console.log("Suma total de edades duplicadas:", sumaTotalEdadesDuplicadas);
+
+    </script>
+</body>
+</html>

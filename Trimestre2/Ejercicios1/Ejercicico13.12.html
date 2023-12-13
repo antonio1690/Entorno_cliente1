@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const numeros = [1, 2, 3, 4, 5];
+
+// Obtener los números duplicados usando map y filter
+const duplicados = numeros.map((numero, index, array) => {
+  return array.indexOf(numero) !== index ? numero : null;
+}).filter((valor, index, self) => {
+  return valor !== null && self.indexOf(valor) === index;
+});
+
+console.log("Números duplicados:", duplicados);
+
+// Obtener los números pares usando filter
+const pares = numeros.filter(numero => numero % 2 === 0);
+console.log("Números pares:", pares);
+
+// Obtener la suma de todos los números usando reduce
+const sumaTotal = numeros.reduce((acumulador, numero) => acumulador + numero, 0);
+console.log("Suma total:", sumaTotal);
+
+    </script>
+</body>
+</html>
