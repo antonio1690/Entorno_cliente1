@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Obtener la fecha y hora actual:
+        const fechaYHoraActual = new Date();
+        console.log(fechaYHoraActual);
+
+        //Mezclar dos Arrays:
+        const array1 = [1, 2, 3];
+        const array2 = ['a', 'b', 'c'];
+
+        const arrayMezclado = array1.concat(array2);
+        console.log(arrayMezclado);
+
+        // Borrar elementos repetidos en un array:
+        const arrayConRepetidos = [1, 2, 2, 3, 4, 4, 5];
+        const arraySinRepetidos = [...new Set(arrayConRepetidos)];
+        console.log(arraySinRepetidos);
+
+        //Generar un número aleatorio entre dos valores dados:
+        const valorMinimo = 1;
+        const valorMaximo = 10;
+        const numeroAleatorio = Math.floor(Math.random() * (valorMaximo - valorMinimo + 1)) + valorMinimo;
+        console.log(numeroAleatorio);
+
+        // Generar una cadena alfanumérica aleatoria:
+        const longitudCadena = 8;
+        const cadenaAleatoria = Math.random().toString(36).substring(2, 2 + longitudCadena);
+        console.log(cadenaAleatoria);
+
+        // Convertir un objeto en un array:
+        const objeto = { a: 1, b: 2, c: 3 };
+        const arrayDeObjeto = Object.entries(objeto);
+        console.log(arrayDeObjeto);
+
+        // Copiar texto al portapapeles:
+        function copiarAlPortapapeles(texto) {
+        const elementoTemporal = document.createElement('textarea');
+        elementoTemporal.value = texto;
+        document.body.appendChild(elementoTemporal);
+        elementoTemporal.select();
+        document.execCommand('copy');
+        document.body.removeChild(elementoTemporal);
+        }
+
+        copiarAlPortapapeles('Texto a copiar');
+
+        // Comprobar si una propiedad existe en un objeto:
+        const objeto1 = { a: 1, b: 2, c: 3 };
+        const propiedadAComprobar = 'b';
+
+        if (propiedadAComprobar in objeto) {
+            console.log(`La propiedad ${propiedadAComprobar} existe en el objeto.`);
+        } else {
+            console.log(`La propiedad ${propiedadAComprobar} no existe en el objeto.`);
+        }
+
+        // Ordenar un array en orden ascendente:
+        const arrayDesordenado = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
+        const arrayOrdenado = arrayDesordenado.sort((a, b) => a - b);
+        console.log(arrayOrdenado);
+
+        // Obtener la longitud de un objeto:
+        const objeto2 = { a: 1, b: 2, c: 3 };
+        const longitudObjeto = Object.keys(objeto2).length;
+        console.log(longitudObjeto);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
