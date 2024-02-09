@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador y Logout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #counter {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-size: 16px;
+      margin: 5px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="counter">0</div>
+
+  <button onclick="increment()">Incrementar</button>
+  <button onclick="decrement()">Decrementar</button>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+ if (typeof(Storage)!== "undefined") {
+    alert("El navegador si soporta la Web storage");
+    if (localStorage.usuario!==null) {
+        document.getElementById("saludo").innerHTML="Bienvenido/a de nuevo"
+        localStorage.usuario+"!";
+    }
+    else {
+        localStorage.usuario= prompt ("¿Cual es tu nombre?")
+        document.getElementById("saludo").innerHTML="Tu primera visita,"+
+        localStorage.usuario+"!"
+    }
+ }
+
+ if(!sessionStorage.getItem("contador")) {
+    document.getElementById("contador").addEventListener("click",incrementar)
+    document.getElementById("contador").addEventListener("click",decrementar)
+    document.getElementById("logout").addEventListener("click",logout)
+ }
+
+ function incrementar() {
+    
+ }
+  </script>
+
+</body>
+</html>

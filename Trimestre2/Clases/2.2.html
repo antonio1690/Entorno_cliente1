@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenidoAPI"></div>
+        <script>
+
+            fetch("https://randomuser.me/api")
+            .then(response=> response.json())
+            .then(datos=> {
+                console.log(datos)
+                document.getElementById("contenidoAPI").innerHTML=
+                <img src= "${datos.results[0].picture.medium}"/>
+                <p> Nombre=${datos.results[0].name.first}</p>
+            })
+        </script>
+</body>
+</html>

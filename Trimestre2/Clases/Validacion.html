@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de Formulario</title>
+    <style>
+        .error {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form id="miFormulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required pattern="[A-Za-z]+" />
+        <br><br>
+        
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" required />
+        <br><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" required />
+        <br><br>
+
+        <p id="mensajeError"></p>
+
+        <button type="button" onclick="validar()">Enviar</button>
+        <button type="button" onclick="borrarError()">Borrar</button>
+    </form>
+
+    <script>
+        window.onload = iniciar;
+
+        function iniciar() {
+            document.getElementById("miFormulario").addEventListener("submit", validar, false);
+        }
+
+        function validarNombre() {
+            var elemento = document.getElementById("nombre");
+            if (!elemento.checkValidity()) {
+                error(elemento);
+                return false;
+            }
+            return true;
+        }
+
+        function validarEdad() {
+            var elemento = document.getElementById("edad");
+            if (!elemento.checkValidity()) {
+                error(elemento);
+                return false;
+            }
+            return true;
+        }
+
+        function validarTelefono() {
+            var elemento = document.getElementById("telefono");
+            if (!elemento.checkValidity()) {
+                error(elemento);
+                return false;
+            }
+            return true;
+        }
+
+        function validar() {
+            if (validarNombre() && validarEdad() && validarTelefono() && confirm("¿Está seguro/a?")) {
+                document.getElementById("mensajeError").innerHTML = "";
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function error(elemento) {
+            document.getElementById("mensajeError").innerHTML = elemento.validationMessage;
+            elemento.className = "error";
+            elemento.focus();
+        }
+
+        function borrarError() {
+            var formulario = document.getElementById("miFormulario");
+            for (let i = 0; i < formulario.elements.length; i++) {
+                formulario.elements[i].className = "";
+            }
+            document.getElementById("mensajeError").innerHTML = "";
+        }
+    </script>
+</body>
+</html>
