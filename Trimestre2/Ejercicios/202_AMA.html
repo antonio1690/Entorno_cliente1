@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        #form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Para centrar verticalmente */
+            
+        }
+        form {
+            width: 50%;
+            text-align: center; /* Para centrar los elementos internos */
+        }
+        legend {
+            text-align: left; /* Para alinear el texto a la izquierda */
+        }
+
+        #mensaje {
+            height: 150px; /* Ajusta la altura del área de texto */
+            width: 500px;
+            resize: vertical; /* Permite redimensionar verticalmente */
+        }
+    </style>
+</head>
+<body>
+    <div id="form-container">
+        <form>
+            <fieldset>
+                <legend>Datos personales</legend>
+
+                <label for="nombre">Introduce tu nombre</label>
+                <input type="text" id="nombre" name="nombre" required><br><br>
+
+                <label for="nif">Introduce tu NIF</label>
+                <input type="text" id="nif" name="nif" required pattern="[0-9]{8}[A-Za-z]{1}"><br><br>
+
+                <label for="fecha_matriculacion">Fecha de matriculación</label>
+                <input type="date" id="fecha_matriculacion" name="fecha_matriculacion"><br><br>
+
+                <label for="curso_academico">Curso académico</label>
+                <select id="curso_academico" name="curso_academico">
+                    <option value="20-21">20-21</option>
+                    <option value="21-22">21-22</option>
+                    <option value="22-23">22-23</option>
+                    <option value="23-24">23-24</option>
+                    <option value="nuevo">Nuevo</option>
+                </select><br><br>
+
+                <label for="asignaturas_daw">Asignaturas de DAW</label><br>
+                <input type="checkbox" id="asignatura1" name="asignatura" value="asignatura1">
+                <label for="asignatura1">Empresas</label><br>
+
+                <input type="checkbox" id="asignatura2" name="asignatura" value="asignatura2">
+                <label for="asignatura2">Desarrollo aplicaciones web</label><br>
+
+                <input type="checkbox" id="asignatura3" name="asignatura" value="asignatura3">
+                <label for="asignatura3">Desarrollo entorno cliente</label><br>
+
+                <input type="checkbox" id="asignatura4" name="asignatura" value="asignatura4">
+                <label for="asignatura4">Desarrollo entorno servidor</label><br>
+
+                <input type="checkbox" id="asignatura5" name="asignatura" value="asignatura5">
+                <label for="asignatura5">Ingles</label><br><br>
+
+                <label for="mensaje">Mensaje</label><br>
+                <textarea id="mensaje" name="mensaje" minlength="2" maxlength="500" required></textarea><br>
+                <span id="charCount">500 caracteres restantes</span><br><br>
+
+                Elige un color:<br>
+                <input type="radio" id="rojo" name="color" value="rojo">
+                <label for="rojo">Rojo</label><br>
+                
+                <input type="radio" id="verde" name="color" value="verde">
+                <label for="verde">Verde</label><br>
+
+                <input type="radio" id="azul" name="color" value="azul" checked>
+                <label for="azul">Azul</label><br>
+
+                <input type="radio" id="oscuro" name="color" value="oscuro">
+                <label for="oscuro">Oscuro</label><br><br>
+
+                Selecciona los días con disponibilidad:<br>
+                <input type="checkbox" id="todos" name="todos" onclick="toggleDays(this.checked)">
+                <label for="todos">Seleccionar/deseleccionar todos</label><br>
+
+                <input type="checkbox" id="lunes" name="dia" value="lunes" >
+                <label for="lunes">Lunes</label><br>
+
+                <input type="checkbox" id="martes" name="dia" value="martes">
+                <label for="martes">Martes</label><br>
+
+                <input type="checkbox" id="miercoles" name="dia" value="miercoles">
+                <label for="miercoles">Miércoles</label><br>
+
+                <input type="checkbox" id="jueves" name="dia" value="jueves">
+                <label for="jueves">Jueves</label><br>
+
+                <input type="checkbox" id="viernes" name="dia" value="viernes">
+                <label for="viernes">Viernes</label><br><br>
+
+                Selecciona el día preferente:
+                <select id="diapreferente" name="diapreferente">
+                    <option selected>Lunes</option>
+                    <option>Martes</option>
+                    <option>Miércoles</option>
+                    <option>Jueves</option>
+                    <option>Viernes</option>
+                </select>
+                <br><br>
+
+                <button type="submit">Haz click para enviar información</button>
+                <button type="reset">Comenzar a rellenar de nuevo</button>
+                <button type="button" onclick="window.location.href='https://www.google.com'">Haz click sobre mí</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        // Contador de caracteres para el campo de mensaje
+        const mensajeInput = document.getElementById('mensaje');
+        const charCount = document.getElementById('charCount');
+        
+        mensajeInput.addEventListener('input', function() {
+            const remainingChars = 500 - mensajeInput.value.length;
+            charCount.textContent = `${remainingChars} caracteres restantes`;
+        });
+
+        // Función para seleccionar/deseleccionar todos los días con disponibilidad
+        function toggleDays(checked) {
+            const checkboxes = document.querySelectorAll('input[name="dia"]');
+            checkboxes.forEach((checkbox) => {
+                checkbox.checked = checked;
+            });
+        }
+
+        // Función para validar el formulario
+        function validarFormulario(event) {
+            const nombre = document.getElementById('nombre').value;
+            const nif = document.getElementById('nif').value;
+            const fechaMatriculacion = document.getElementById('fecha_matriculacion').value;
+            const mensaje = document.getElementById('mensaje').value;
+            const checkboxesDias = document.querySelectorAll('input[name="dia"]:checked').length;
+            const colorSeleccionado = document.querySelector('input[name="color"]:checked');
+            const diapreferente = document.getElementById('diapreferente').value;
+
+            // Validación de nombre
+            if (nombre.trim() === '') {
+                alert('Por favor, introduce tu nombre.');
+                event.preventDefault();
+                return;
+            }
+
+            // Validación de NIF
+            if (!validarNIF(nif)) {
+                alert('El NIF introducido no es válido.');
+                event.preventDefault();
+                return;
+            }
+
+            // Validación de mensaje
+            if (mensaje.length < 2 || mensaje.length > 500) {
+                alert('El mensaje debe tener entre 2 y 500 caracteres.');
+                event.preventDefault();
+                return;
+            }
+
+            // Validación de días seleccionados
+            if (checkboxesDias < 2) {
+                alert('Debes seleccionar al menos dos días con disponibilidad.');
+                event.preventDefault();
+                return;
+            }
+
+            // Validación exitosa
+            alert('Formulario validado correctamente.');
+        }
+
+        // Función para validar el NIF
+        function validarNIF(nif) {
+            const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+            const numero = nif.substr(0, nif.length - 1);
+            const letra = nif.charAt(nif.length - 1).toUpperCase();
+            return letra === letras[numero % 23];
+        }
+
+        // Agregar el evento submit al formulario para llamar a la función validarFormulario
+        document.querySelector('form').addEventListener('submit', validarFormulario);
+    </script>
+</body>
+</html>
+

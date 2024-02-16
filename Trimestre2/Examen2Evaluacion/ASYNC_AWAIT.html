@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--? DEFINICION -->
+    <!-- async: La palabra clave async se utiliza para declarar una función como asíncrona. Cuando una función es declarada con async, automáticamente devuelve una Promesa. Dentro de una función async, puedes utilizar la palabra clave await para esperar a que una Promesa se resuelva antes de continuar con la ejecución del código.
+
+    await: La palabra clave await se utiliza dentro de una función async para pausar la ejecución de la función hasta que la Promesa pasada como argumento se resuelva. Esto permite escribir código que parece sincrónico, aunque esté tratando con operaciones asincrónicas. -->
+
+    <!--? EJERCICIO 1 -->
+    <!-- Obtener datos de una API asincrónica -->
+    async function obtenerDatosDeAPI(url) {
+        try {
+          const respuesta = await fetch(url);
+          const datos = await respuesta.json();
+          return datos;
+        } catch (error) {
+          console.error('Error al obtener datos de la API:', error);
+          return null;
+        }
+      }
+      
+      // Llamada a la función asincrónica
+      async function ejecutarEjercicio1() {
+        const url = 'https://api.example.com/data';
+        const datos = await obtenerDatosDeAPI(url);
+        if (datos) {
+          console.log('Datos obtenidos de la API:', datos);
+        }
+      }
+      
+      ejecutarEjercicio1();
+
+
+      <!--? EJERCICIO 2 -->
+      <!--Simular múltiples operaciones asincrónicas  -->
+      function espera(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+      
+      async function operacionAsincronica(nombre, tiempo) {
+        console.log(`${nombre} comenzó.`);
+        await espera(tiempo);
+        console.log(`${nombre} terminó después de ${tiempo} ms.`);
+      }
+      
+      async function ejecutarEjercicio2() {
+        console.log('Inicio del programa.');
+        await operacionAsincronica('Operación 1', 2000);
+        await operacionAsincronica('Operación 2', 1500);
+        await operacionAsincronica('Operación 3', 1000);
+        console.log('Fin del programa.');
+      }
+      
+      ejecutarEjercicio2();
+      
+    
+
+
+
+
+
+
+
+</body>
+</html>

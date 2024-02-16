@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--? DEFINICION -->
+    <!-- 
+Las cookies de JavaScript son pequeños fragmentos de datos que se almacenan e
+n el navegador web del usuario. Estos fragmentos de datos se utilizan 
+para recordar información específica sobre el usuario o su interacción 
+con el sitio web, como preferencias de navegación,información de inicio
+ de sesión o elementos del carrito de compras en línea. 
+ Las cookies de JavaScript se pueden establecer,leer y eliminar mediante 
+ código JavaScript en el lado del cliente, lo que permite a los desarrolladores 
+ crear experiencias web más personalizadas y funcionales para los usuarios. -->
+
+<!--? EJERCICIO 1 -->
+<!--En este ejercicio, puedes crear un formulario donde los usuarios puedan seleccionar sus preferencias de color de fondo para el sitio web. Estas preferencias 
+    se almacenarán en una cookie y se aplicarán cada vez que el usuario visite el sitio.-->
+    <script>
+        function guardarPreferencias() {
+            var color = document.getElementById('color').value;
+            document.cookie = 'color=' + color;
+            document.body.style.backgroundColor = color;
+        }
+
+        function cargarPreferencias() {
+            var cookies = document.cookie.split(';');
+            cookies.forEach(function(cookie) {
+                var partes = cookie.split('=');
+                if (partes[0].trim() === 'color') {
+                    var color = partes[1];
+                    document.body.style.backgroundColor = color;
+                    document.getElementById('color').value = color;
+                }
+            });
+        }
+    </script>
+</head>
+<body onload="cargarPreferencias()">
+    <h1>Selecciona tu Color de Fondo Preferido:</h1>
+    <select id="color">
+        <option value="white">Blanco</option>
+        <option value="lightblue">Azul Claro</option>
+        <option value="lightgreen">Verde Claro</option>
+        <option value="lightgray">Gris Claro</option>
+    </select>
+    <button onclick="guardarPreferencias()">Guardar Preferencias</button>
+</body>
+
+
+<!--? EJERCICIO 2 -->
+<!-- Este ejercicio rastrea el número de veces que un usuario ha visitado el sitio web utilizando cookies. -->
+<script>
+    function contarVisitas() {
+        var contador = getCookie('visitas');
+        if (contador) {
+            contador = parseInt(contador) + 1;
+        } else {
+            contador = 1;
+        }
+        document.cookie = 'visitas=' + contador;
+        document.getElementById('contador').innerHTML = 'Número de Visitas: ' + contador;
+    }
+
+    function getCookie(nombre) {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim().split('=');
+            if (cookie[0] === nombre) {
+                return cookie[1];
+            }
+        }
+        return null;
+    }
+</script>
+</head>
+<body onload="contarVisitas()">
+<h1>Bienvenido a nuestro sitio web</h1>
+<p id="contador">Número de Visitas: 0</p>
+</body>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
