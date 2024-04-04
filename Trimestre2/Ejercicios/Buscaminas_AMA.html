@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buscaminas</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    #tablero {
+        display: grid;
+        border-collapse: collapse;
+    }
+    .casilla {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+    }
+    .casilla.destapada {
+        background-color: #eee;
+    }
+    .casilla.bomba {
+        background-color: red;
+    }
+    .casilla.bandera {
+        background-color: yellow;
+    }
+</style>
+</head>
+<body>
+<button onclick="nuevaPartida()">Nueva Partida</button>
+<table id="tablero"></table>
+<script>
+    let tablero = document.getElementById('tablero');
+    let dimensiones;
+    let minas = [];
+
+    function iniciarJuego() {
+        dimensiones = parseInt(prompt("Introduce el tamaño del tablero (número de filas y columnas):"));
+        if(isNaN(dimensiones) || dimensiones <= 0) {
+            alert("Por favor, introduce un número válido.");
+            iniciarJuego();
+            return;
+        }
+        minas = generarMinas();
+        crearTablero();
+    }
+
+    function generarMinas() {
+        let cantidadMinas = Math.floor(dimensiones * dimensiones * 0.15);
+        let minasGeneradas = [];
+        while (minasGeneradas.length < cantidadMinas) {
+            let fila = Math.floor(Math.random() * dimensiones);
+            let columna = Math.floor(Math.random() * dimensiones);
+            let mina = fila + '-' + columna;
+            if (!minasGeneradas.includes(mina)) {
+                minasGeneradas.push(mina);
+            }
+        }
+        return minasGeneradas;
+    }
+
+    function crearTablero() {
+        tablero.innerHTML = '';
+        for (let i = 0; i < dimensiones; i++) {
+            let fila = document.createElement('tr');
+            for (let j = 0; j < dimensiones; j++) {
+                let casilla = document.createElement('td');
+                casilla.classList.add('casilla');
+                casilla.setAttribute('data-fila', i);
+                casilla.setAttribute('data-columna', j);
+                casilla.addEventListener('click', investigarCasilla);
+                casilla.addEventListener('contextmenu', colocarBandera);
+                fila.appendChild(casilla);
+            }
+            tablero.appendChild(fila);
+        }
+    }
+
+    function nuevaPartida() {
+        iniciarJuego();
+    }
+
+    function investigarCasilla(event) {
+        let casilla = event.target;
+        let fila = parseInt(casilla.getAttribute('data-fila'));
+        let columna = parseInt(casilla.getAttribute('data-columna'));
+        let posicion = fila + '-' + columna;
+        if (minas.includes(posicion)) {
+            casilla.classList.add('bomba');
+            gameOver();
+        } else {
+            let minasAlrededor = contarMinasAlrededor(fila, columna);
+            if (minasAlrededor > 0) {
+                casilla.classList.add('destapada');
+                casilla.textContent = minasAlrededor;
+            } else {
+                destaparCasillasCircundantes(fila, columna);
+            }
+        }
+    }
+
+    function colocarBandera(event) {
+        event.preventDefault();
+        let casilla = event.target;
+        if (!casilla.classList.contains('destapada')) {
+            casilla.classList.toggle('bandera');
+        }
+    }
+
+    function contarMinasAlrededor(fila, columna) {
+        let contador = 0;
+        for (let i = fila - 1; i <= fila + 1; i++) {
+            for (let j = columna - 1; j <= columna + 1; j++) {
+                if (i >= 0 && i < dimensiones && j >= 0 && j < dimensiones) {
+                    let posicion = i + '-' + j;
+                    if (minas.includes(posicion)) {
+                        contador++;
+                    }
+                }
+            }
+        }
+        return contador;
+    }
+
+    function destaparCasillasCircundantes(fila, columna) {
+        let visitados = new Set();
+        function dfs(x, y) {
+            if (x < 0 || x >= dimensiones || y < 0 || y >= dimensiones) return;
+            let posicion = x + '-' + y;
+            if (visitados.has(posicion)) return;
+            visitados.add(posicion);
+            let casilla = document.querySelector(`[data-fila="${x}"][data-columna="${y}"]`);
+            if (minas.includes(posicion)) return;
+            let minasAlrededor = contarMinasAlrededor(x, y);
+            if (minasAlrededor > 0) {
+                casilla.classList.add('destapada');
+                casilla.textContent = minasAlrededor;
+                return;
+            }
+            casilla.classList.add('destapada');
+            for (let i = x - 1; i <= x + 1; i++) {
+                for (let j = y - 1; j <= y + 1; j++) {
+                    dfs(i, j);
+                }
+            }
+        }
+        dfs(fila, columna);
+    }
+
+    function gameOver() {
+        alert('¡Boom! Has perdido.');
+    
+    }
+
+    iniciarJuego();
+</script>
+</body>
+</html>

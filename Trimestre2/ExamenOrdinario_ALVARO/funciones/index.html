@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones</title>
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" />
+  </head>
+  <body>
+    <main></main>
+    <script>
+      const body = document.body
+
+      let res = (base, exponente) => {
+        let resultado = 1
+        for (let i = 0; i < (exponente >= 0 ? exponente : -exponente); i++) {
+          resultado *= base
+        }
+        return exponente > 0 ? resultado : 1 / resultado
+      }
+
+      const base = prompt('Escribe la base')
+      const exponente = prompt('Escribe el exponente')
+      body.append(`Resultado: ${res(base, exponente)}`)
+    </script>
+  </body>
+</html>

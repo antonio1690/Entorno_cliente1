@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios - 12-01</title>
+    <style>
+      input[type='text'],
+      input[type='file'] {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form
+      action="mailto:alvarourenacarrillo11@gmail.com"
+      enctype="multipart/form-data"
+    >
+      <label>
+        Nombre:
+        <input name="nombre" type="text" />
+      </label>
+      <label>
+        Apellidos:
+        <input name="apellidos" type="text" />
+      </label>
+      <label>
+        DNI:
+        <input name="dni" type="text" />
+      </label>
+      Sexo: <br />
+      <label>
+        <input type="radio" value="hombre" name="sexo" />
+        Hombre
+      </label>
+      <br />
+      <label>
+        <input type="radio" value="mujer" name="sexo" />
+        Mujer
+      </label>
+      <br />
+      <input type="file" />
+      <label>
+        <input name="publicidad" type="checkbox" checked />
+        Enviar publicidad
+      </label>
+      <br />
+      <input type="submit" value="Guardar cambios" />
+      <input type="reset" value="Borrar los datos introducidos" />
+    </form>
+    <script src="12-01.js"></script>
+  </body>
+</html>

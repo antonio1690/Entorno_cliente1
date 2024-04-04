@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+
+
+/* ¿Cómo crear una promesa?
+
+Para crear una promesa, se utiliza el constructor Promise. Este constructor recibe una función como argumento, la cual se denomina "ejecutor" de la promesa. El ejecutor tiene dos parámetros:
+
+resolve: Esta función se utiliza para indicar que la operación ha finalizado con éxito.
+reject: Esta función se utiliza para indicar que la operación ha fallado. */
+
+const promise = new Promise((resolve, reject) => {
+  // Simulamos una operación asíncrona
+  setTimeout(() => {
+    if (Math.random() > 0.5) {
+      resolve("¡Operación exitosa!");
+    } else {
+      reject("¡Operación fallida!");
+    }
+  }, 1000);
+});
+
+
+/* ¿Cómo consumir una promesa?
+
+Una vez que tenemos una promesa, podemos utilizarla con los métodos .then() y .catch().
+
+.then(): Este método se utiliza para registrar una función que se ejecutará cuando la promesa se resuelva con éxito.
+.catch(): Este método se utiliza para registrar una función que se ejecutará cuando la promesa falle. */
+
+promise
+  .then((resultado) => {
+    console.log(resultado); // "¡Operación exitosa!"
+  })
+  .catch((error) => {
+    console.log(error); // "¡Operación fallida!"
+  });
+
+
+  const procesoAsincrono = (valor) => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(valor * 2), 1000);
+  });
+};
+
+procesoAsincrono(5).then((resultado) => {
+  console.log(resultado); // 10
+});
+
+
+</script>
+</html>

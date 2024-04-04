@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="pantalla" style="text-align: center;">Preparado para comenzar</h1>
+    <script>
+        const pantalla = document.getElementById("pantalla");
+        let corredor = 1;
+        
+
+        function cuentaAtras(contador) {
+            for (let i = 3; i < contador.length; i--) {
+                const element = array[i];
+                
+            }
+        }
+
+
+        function esperarDosSegundos() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve();
+                }, 2000);
+            });
+        }
+        
+
+
+        function esperarCincoSegundos() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve();
+                }, 5000);
+            });
+        }
+
+        function mostrarMensaje() {
+            if (corredor > 25) {
+                pantalla.textContent = "Salida finalizada. Todos los corredores han salido";
+            } else {
+                pantalla.textContent = "Participante " + corredor + " ¡YA!";
+                corredor++;
+            }
+        }
+
+        function iniciarSalida() {
+            esperarCincoSegundos().then(() => {
+                mostrarMensaje();
+                if (corredor <= 25) {
+                    iniciarSalida();
+                }
+            });
+        }
+
+        iniciarSalida();
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio Patrones</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+  </head>
+  <body>
+    <script>
+      function pedirTexto() {
+        let error = false
+        let texto = ''
+        do {
+          texto = prompt(
+            !error
+              ? 'Introduce una cadena de texto'
+              : 'Por favor, debes introducir algo'
+          )
+          if (texto === '') error = true
+          else error = false
+        } while (error)
+
+        return texto
+      }
+
+      function pedirPatrones() {
+        const patrones = []
+        let patron = ''
+        let error = ''
+        let salir = false
+        while (!salir) {
+          patron = prompt(
+            !error
+              ? 'Escribe un patron, cuando quieras parar escribe "salir"'
+              : error
+          )
+
+          // Validaciones
+          if (patron.toUpperCase() === 'SALIR') {
+            salir = true
+            continue
+          } // Cuando pone 'salir' sale del bucle
+          if (patron === '')
+            // Si no pone nada entonces no añadira nada y pondra un mensaje de error
+            error =
+              'Has escrito un patron vacio, por favor escribe algun patrón'
+          else {
+            patrones.push({
+              patron,
+              repetido: 0
+            })
+            error = ''
+          }
+        }
+
+        return patrones
+      }
+
+      function numeroPatrones(texto, patronesBuscar) {
+        let total = 0
+        patronesBuscar.forEach(patron => {
+          let copiaTexto = texto
+          while (copiaTexto.includes(patron.patron)) {
+            copiaTexto = copiaTexto.substring(
+              copiaTexto.indexOf(patron.patron) + 1
+            )
+            patron.repetido++
+            total++
+          }
+        })
+
+        return {
+          patronesBuscar,
+          total
+        }
+      }
+
+      // Ponemos en acción las funciones
+      const texto = pedirTexto()
+      const patrones = pedirPatrones()
+
+      /* 
+      Recordemos que numeroPatrones() devuelve un objeto que dentro tiene el numero total
+      de patrones encontrados y un array 'patronesBuscar' con objetos de la siguiente forma:
+      {
+        patron: string,
+        repetido: number
+      }[]
+      */
+      const { patronesBuscar, total } = numeroPatrones(texto, patrones)
+
+      // Pintamos en pantalla
+      const body = document.body
+      const parrafo = document.createElement('p')
+      const lista = document.createElement('ul')
+      parrafo.innerText = `Patrones encontrados en '${texto}': ${total}`
+      parrafo.style.fontSize = '2rem'
+      body.append(parrafo)
+      body.append(lista)
+
+      patronesBuscar.forEach(patron => {
+        const elemLista = document.createElement('li')
+        elemLista.innerText = `Patron '${patron.patron}': ${patron.repetido}`
+        elemLista.style.fontSize = '2rem'
+        lista.append(elemLista)
+      })
+    </script>
+  </body>
+</html>

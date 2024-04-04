@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> EJERCICIO 1.2 </title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    /*Elabora un programa en JavaScript que pida una cadena de texto por pantalla
+    y devuelva la misma cadena escrita en sentido inverso.
+    Un palíndromo es una palabra o frase que se lee igual en ambos sentidos
+    */
+
+    //Pedir una cdena de texto por pantalla
+    let nombre = prompt("Introduce una cadena de texto:");
+
+    // Devolver esa cadena de texto pero en sentido inverso
+    function reverseString(nombre){
+        let reversedNombre = "";
+        for (let i = nombre.length - 1; i >= 0; i--) {
+            reversedNombre += nombre[i];
+        }
+        return reversedNombre;
+    };
+    console.log("La cadena introducida al revés es: " + reverseString(nombre));
+
+    // Realizar un control de errores
+    if(isNaN(nombre)){
+        alert("Has escrito una cadena de texto correctamente.");
+    }else{
+        alert("No has escrito una cadena de texto. Por favor, inténtalo de nuevo.")
+    };
+
+    // Comprobacion de que la cadena de texto es un palídromo
+    function isPalindromo(cadena) {
+        let longitud = Math.floor(cadena.length / 2);
+        for (let i = 0; i < longitud; i++) {
+            if (cadena[i] !== cadena[cadena.length - i - 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    if(isPalindromo(nombre)) {
+        console.log('Es un palíndromo');
+    } else {
+        console.log('No es un palíndromo');
+    }
+
+</script>
+</html>

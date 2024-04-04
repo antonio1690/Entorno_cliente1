@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <style>
+        /* Reset de estilos para limpiar márgenes y padding */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #0066cc;
+    margin-top: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea,
+input[type="email"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    margin-bottom: 16px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+.errorSpam {
+    color: red;
+    font-size: 12px;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    
+    <h1 id="idTitulo">¡Bienvenido al Formulario de Contacto!</h1>
+
+    <form id="miFormulario" action="#" method="post">     
+
+        <label for="idNombre">Nombre:</label>
+        <input type="text" name="nombre" id="idNombre" required maxlength="30" />
+        <span id="idNombreError" class="errorSpam"></span>
+
+        <label for="idEdad">Edad:</label>
+        <input type="number" name="edad" id="idEdad" required min="18" max="99" />
+        <span id="idEdadError" class="errorSpam"></span>
+
+        <label for="idEmail">Correo Electrónico</label>
+        <input type="email" name="email" id="idEmail" />
+        <span id="idEdadError" class="errorSpam"></span>
+
+        <label for="idFechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" name="fechaNacimiento" id="idFechaNacimiento" />
+        <span id="idEdadFechaNacimiento" class="errorSpam"></span>
+
+        <label for="idPais">País:</label>
+        <select name="pais" id="idPais" required>
+            <option value="" disabled selected>Selecciona tu país</option>
+            <option value="espana">España</option>
+            <option value="mexico">México</option>
+            <option value="argentina">Argentina</option>
+            <option value="otro">Otro</option>            
+        </select>
+        <span id="idPaisError" class="errorSpam"></span>
+
+        <label for="idIntereses">Intereses:</label>
+        <ul>
+            <li><input type="checkbox" name="interes" value="deportes"> Deportes</li>
+            <li><input type="checkbox" name="interes" value="musica"> Música</li>
+            <li><input type="checkbox" name="interes" value="viajes"> Viajes</li>
+            <li><input type="checkbox" name="interes" value="y-mas"> Y mas</li>            
+        </ul>
+        <span id="idInteresesError" class="errorSpam"></span>
+
+        <label for="idObservaciones">Observaciones:</label>
+        <textarea name="observaciones" id="idObservaciones" rows="4" cols="50"></textarea>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+</body>
+
+<script>
+    /*
+        Realizar una validacion de cada campo del formulario.
+    */
+   function validateForm() {
+    // Recoger los valores de los campos
+       let nombre = document.getElementById('idNombre').value;
+       let edad = document.getElementById('idEdad').value;
+       let email = document.getElementById('idEmail').value;
+       let fechaNacimiento =  document.getElementById('idFechaNacimiento').value;
+       let  pais = document.getElementById('idPais').value;
+       let intereses = document.getElementsByName('interes');
+       let observaciones = document.getElementById('idObservaciones').value;
+
+       // Crear las variables para almacenar los mensajes de error si es que hubieren
+       let nombresErr, edadesErr, emailsErr, fechasErr, paisesErr, interesesErr, observErr;
+
+       // Validar el nombre
+       if (nombre == ""){
+        nombresErr= "Inserta un nombre";
+        } else {
+            nrombresErr = "";
+       }
+
+       //Validar la edad
+       if(isNaN(edad) || edad <= 0) {
+        edadesErr = "La edad debe ser un numero y mayor a 0";
+        }else{
+            edadesErr = "";
+       }
+
+       //Validar el email
+       if (!email.includes("@")) {
+        emailsErr = "El email no tiene el formato correcto.";
+        }else{
+            emailsErr = "";
+       }
+
+       //Validar el dia/mes/año en la fecha nacimiento
+       const dateNow = new Date();
+       const birthDate = new Date(fechaNacimiento.replace(/-/g,"/"));
+       if(birthDate > dateNow) {
+        fechasErr = "La fecha de nacimiento no puede ser superior a hoy.";
+       } else {
+           const yearDif = dateNow.getFullYear() - birthDate.getFullYear();
+           const monthDif = dateNow.getMonth() - birthDate.getMonth();
+           if (monthDif < 0 || (monthDif === 0 && dateNow.getDate() < birthDate.getDate())) {
+            fechasErr = "La fecha de nacimiento no puede ser superior a hoy.";
+            } else {
+                fechasErr = "";
+           }
+       }
+
+       //Validar  el país
+       if (pais == "Seleccione") {
+        paisesErr = "Debe elegir un país";
+       } else {
+         paisesErr = "";
+       }
+
+       //Validar el campo intereses con al menos un interes seleccionado
+       if (intereses.length == 0) {
+        interesesErr = "Debe elegir por lo menos un interes";
+        } else {
+          interesesErr = "";
+       }
+
+       //Validar el campo observaciones con al menos un caracter
+       if (observaciones.trim().length == 0) {
+        observacionesErr = "Este campo debe tener al menos un carácter.";
+       } else {
+        observacionesErr = "";
+       }
+   };
+
+   //Muestra mensajes de error para cada campo si la validacion falla
+   function showErrors(){
+    document.getElementById("nombreErr").innerHTML = nombresErr;
+    document.getElementById("emailErr").innerHTML = emailsErr;
+    
+   }
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
